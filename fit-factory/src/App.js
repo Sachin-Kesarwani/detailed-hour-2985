@@ -5,7 +5,7 @@ import { Heading } from "@chakra-ui/react";
 function App() {
   return (
     <div className="App">
-      <Heading>Hellofit-factory</Heading>
+      <Heading>Hellofit-factory with team</Heading>
     </div>
   );
 }
