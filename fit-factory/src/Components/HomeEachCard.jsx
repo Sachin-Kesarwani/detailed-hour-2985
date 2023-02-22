@@ -17,7 +17,9 @@ import { BsArrowUpRight, BsHeartFill, BsHeart } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 export default function EachCard() {
   const [liked, setLiked] = useState(false);
-
+  function fun() {
+    console.log("ho");
+  }
   return (
     <Center py={6}>
       <Box
@@ -157,6 +159,23 @@ export default function EachCard() {
             <Icon as={FiShoppingCart} h={5} w={5} alignSelf={"center"} /> Add To
             Cart
           </Box>
+        </Box>
+
+        <Box
+          onClick={fun}
+          cursor={"pointer"}
+          _hover={{ bg: "orange", color: "white" }}
+          padding={"10px 15px"}
+          borderRadius={"10px"}
+          fontSize={"17px"}
+          color={"orange.400"}
+          fontWeight={"bold"}
+          border={"1.5px solid orange"}
+          marginTop={"10px"}
+          marginBottom={"10px"}
+        >
+          <Icon as={FiShoppingCart} h={5} w={5} alignSelf={"center"} /> Add To
+          Cart
         </Box>
       </Box>
     </Center>
