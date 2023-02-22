@@ -1,12 +1,8 @@
-
-
-
-
-let inistate={
-    data:[]
-}
-export function reducer(state=inistate){
-    return {
-...state
-    }
+let inistate = {
+  data: [],
+};
+export function reducer(state = inistate) {
+  return {
+    ...state,
+  };
 }
