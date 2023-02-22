@@ -1,0 +1,17 @@
+
+
+#carousel_1{
+    height:32vw
+}
+#carousel_2{
+    height: 32vw;
+}
+
+@media all and (min-width:140px) and (max-width:450px){
+    #carousel_1{
+        height:40vw
+    }
+    #carousel_2{
+height: 36vw;
+    }
+}
