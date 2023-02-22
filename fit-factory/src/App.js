@@ -1,10 +1,12 @@
 import  Carousel  from "./Carousel/Carousel";
+import Navbar from "./Components/Navber";
 import Home from "./Pages/Home";
 import Footer from "./Components/Footer";
+
 function App() {
   return (
     <div className="App">
-      <Heading>Hellofit-factory with team</Heading>
+      <Navbar />
      <Home/>
      <Footer/>
     </div>
