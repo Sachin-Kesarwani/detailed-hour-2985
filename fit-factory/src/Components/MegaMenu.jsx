@@ -1,7 +1,6 @@
 import {
   Box,
   Grid,
-  Image,
   Menu,
   MenuButton,
   MenuItem,
@@ -18,12 +17,7 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 
 const MegaMenu = () => {
   return (
-    <Box
-      w={{ base: "100%", lg: "100%" }}
-      p="5px 2%"
-      margin="auto"
-      bgColor="#e2ddd9"
-    >
+    <Box w={{ base: "100%", lg: "100%" }} p="5px 2%" margin="auto">
       <Grid
         templateColumns={{
           base: "repeat(2, 1fr)",
@@ -42,15 +36,17 @@ const MegaMenu = () => {
               alignItems="center"
               w="130px"
             >
-              {/* <Image
-                p="0px 10px 0px 15px"
-                w={{ base: "45px", sm: "50px", md: "80px" }}
-                src={}
-                h="100%"
-              /> */}
-              <BiCategory />
-              <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
-                Shop By Category
+              <BiCategory
+                style={{
+                  height: "20px",
+                  width: "20px",
+                }}
+              />
+              <Text
+                fontSize={{ base: "12px", sm: "14px", md: "16px" }}
+                margin="0px 7px"
+              >
+                Category
               </Text>
             </Box>
           </MenuButton>
@@ -385,14 +381,16 @@ const MegaMenu = () => {
               alignItems="center"
               w="130px"
             >
-              {/* <Image
-                p="0px 10px 0px 15px"
-                w={{ base: "45px", sm: "50px", md: "80px" }}
-                src={}
-                h="100%"
-              /> */}
-              <MdSell />
-              <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
+              <MdSell
+                style={{
+                  height: "20px",
+                  width: "20px",
+                }}
+              />
+              <Text
+                fontSize={{ base: "12px", sm: "14px", md: "16px" }}
+                margin="0px 7px"
+              >
                 Best Sellers
               </Text>
             </Box>
@@ -730,14 +728,16 @@ const MegaMenu = () => {
               alignItems="center"
               w="130px"
             >
-              {/* <Image
-                p="0px 10px 0px 15px"
-                w={{ base: "45px", sm: "50px", md: "80px" }}
-                src={}
-                h="100%"
-              /> */}
-              <TbBrandSvelte />
-              <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
+              <TbBrandSvelte
+                style={{
+                  height: "20px",
+                  width: "20px",
+                }}
+              />
+              <Text
+                fontSize={{ base: "12px", sm: "14px", md: "16px" }}
+                margin="0px 7px"
+              >
                 Brands
               </Text>
             </Box>
@@ -1151,14 +1151,16 @@ const MegaMenu = () => {
               alignItems="center"
               w="130px"
             >
-              {/* <Image
-                p="0px 10px 0px 15px"
-                w={{ base: "45px", sm: "50px", md: "80px" }}
-                src={}
-                h="100%"
-              /> */}
-              <BiCodeAlt />
-              <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
+              <BiCodeAlt
+                style={{
+                  height: "20px",
+                  width: "20px",
+                }}
+              />
+              <Text
+                fontSize={{ base: "12px", sm: "14px", md: "16px" }}
+                margin="0px 7px"
+              >
                 Deals
               </Text>
             </Box>
@@ -1174,14 +1176,16 @@ const MegaMenu = () => {
               alignItems="center"
               w="130px"
             >
-              {/* <Image
-                p="0px 10px 0px 15px"
-                w={{ base: "45px", sm: "50px", md: "80px" }}
-                src={}
-                h="100%"
-              /> */}
-              <FaBlog />
-              <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
+              <FaBlog
+                style={{
+                  height: "16px",
+                  width: "16px",
+                }}
+              />
+              <Text
+                fontSize={{ base: "12px", sm: "14px", md: "16px" }}
+                margin="0px 7px"
+              >
                 Blogs
               </Text>
             </Box>
@@ -1197,41 +1201,21 @@ const MegaMenu = () => {
               alignItems="center"
               w="130px"
             >
-              {/* <Image
-                p="0px 10px 0px 15px"
-                w={{ base: "45px", sm: "50px", md: "80px" }}
-                src={}
-                h="100%"
-              /> */}
-              <RiCustomerService2Fill />
-              <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
-                Customer Care
+              <RiCustomerService2Fill
+                style={{
+                  height: "20px",
+                  width: "20px",
+                }}
+              />
+              <Text
+                fontSize={{ base: "12px", sm: "14px", md: "16px" }}
+                margin="0px 7px"
+              >
+                Help Care
               </Text>
             </Box>
           </MenuButton>
         </Menu>
-
-        {/* Seventh Menu - Store Location */}
-        {/* <Menu>
-          <MenuButton>
-            <Box
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              w="130px"
-            > */}
-        {/* <Image
-                p="0px 10px 0px 15px"
-                w={{ base: "45px", sm: "50px", md: "80px" }}
-                src={}
-                h="100%"
-              /> */}
-        {/* <Text fontSize={{ base: "12px", sm: "14px", md: "16px" }}>
-                Store Location
-              </Text>
-            </Box>
-          </MenuButton>
-        </Menu> */}
       </Grid>
     </Box>
   );

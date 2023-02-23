@@ -1,63 +1,57 @@
-#brandImageMainDiv{
+#brandImageMainDiv {
+  display: grid;
+  width: 90%;
+  gap: 10px;
+  margin: auto;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#brandImageMainDiv > div > img {
+  border-radius: 10px;
+}
+
+@media All and (min-width: 870px) and (max-width: 1000px) {
+  #brandImageMainDiv {
     display: grid;
-    width:90%;
-    gap:10px;
+    width: 90%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media All and (min-width: 470px) and (max-width: 869px) {
+  #brandImageMainDiv {
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media All and (min-width: 140px) and (max-width: 469px) {
+  #brandImageMainDiv {
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #brandImageMainDiv > div > img {
+    width: 100px;
     margin: auto;
-    grid-template-columns: repeat(4,1fr);
-}
-
-#brandImageMainDiv > div >img{
-    border-radius: 10px;
-}
-
-@media All and (min-width:870px) and (max-width:1000px){
-    #brandImageMainDiv{
-        display: grid;
-        width:90%;
-      
-        grid-template-columns: repeat(3,1fr);
-    }
-}
-@media All and (min-width:470px) and (max-width:869px){
-    #brandImageMainDiv{
-        display: grid;
-        width:90%;
-      
-        grid-template-columns: repeat(2,1fr);
-    }
-}
-@media All and (min-width:140px) and (max-width:469px){
-    #brandImageMainDiv{
-        display: grid;
-        width:90%;
-      
-        grid-template-columns: repeat(2,1fr);
-    }
-    #brandImageMainDiv > div >img{
-       width: 100px;
-       margin: auto;
-    }
+  }
 }
 /* /////////////////////////////////////////////////////////////////////////// */
 
-                /* "BRAND COMAPNY CSS" */
+/* "BRAND COMAPNY CSS" */
 
-#companymaindiv{
-
-   display: flex;
-   flex-wrap: wrap;
-   width: 90%;
-   margin: auto;
+#companymaindiv {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
 }
 
-@media All and (min-width:140px) and (max-width:469px){
-    #companymaindiv{
-
-        display: grid;
-      grid-template-columns: repeat(3,1fr);
-        width: 100%;
-        margin: auto;
-     }
-   
+@media All and (min-width: 140px) and (max-width: 469px) {
+  #companymaindiv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: auto;
+  }
 }
-                 /* "BRAND COMAPNY CSS" */
+/* "BRAND COMAPNY CSS" */
