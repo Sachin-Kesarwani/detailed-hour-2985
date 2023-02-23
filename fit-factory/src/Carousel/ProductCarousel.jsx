@@ -2,11 +2,10 @@
 // import { useSelector } from "react-redux";
 // import Slider from "react-slick";
 // import EachCard from "../Components/HomeEachCard";
-// // import "~slick-carousel/slick/slick.css"; 
+// // import "~slick-carousel/slick/slick.css";
 // // import "~slick-carousel/slick/slick-theme.css";
 // export default class Responsive extends Component {
 
-   
 //   render() {
 //     var settings = {
 //       dots: true,
@@ -42,7 +41,7 @@
 //         }
 //       ]
 //     };
-   
+
 //     return (
 //       <div>
 //         <h2> Responsive </h2>

@@ -21,7 +21,11 @@ import { Loading } from "../Redux/HomePageRedux/actiontype";
 import { useEffect } from "react";
 import Responsive from "../Carousel/ProductCarousel";
 import { Text } from "@chakra-ui/react";
-import { PostdataIncart, PostdataInWishList,DeldatafromWishlist } from "../Redux/CartRedux/action";
+import {
+  PostdataIncart,
+  PostdataInWishList,
+  DeldatafromWishlist,
+} from "../Redux/CartRedux/action";
 const Home = () => {
   let dispatch = useDispatch();
 
@@ -67,13 +71,12 @@ const Home = () => {
   }, []);
 
   let cartdata = useSelector((store) => store.CartReducer?.cart);
-  
 
   // console.log(wishlist)
-  function handlePostdataIncart(id, data) { 
+  function handlePostdataIncart(id, data) {
     let userID = 5;
     delete data.Position;
-   
+
     if (cartdata.length && cartdata.length >= 1) {
       let notThere = true;
       for (let i = 0; i < cartdata.length; i++) {
@@ -91,8 +94,7 @@ const Home = () => {
       dispatch(PostdataIncart(userID, data));
     }
   }
-////////////////////////////////////////////////////
-
+  ////////////////////////////////////////////////////
 
   return (
     <div>
@@ -118,8 +120,7 @@ const Home = () => {
               PriceSlashData?.map((item) => {
                 return (
                   <EachCard
-                  handlePostdataIncart={ handlePostdataIncart}
-               
+                    handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}
                   />
@@ -148,7 +149,13 @@ const Home = () => {
           <div className="piceslashAlertDiv">
             {TopDealsData.length > 0 &&
               TopDealsData?.map((item) => {
-                return <EachCard  handlePostdataIncart={ handlePostdataIncart} key={item.id} item={item} />;
+                return (
+                  <EachCard
+                    handlePostdataIncart={handlePostdataIncart}
+                    key={item.id}
+                    item={item}
+                  />
+                );
               })}
           </div>
         </div>
@@ -172,7 +179,13 @@ const Home = () => {
           <div className="piceslashAlertDiv">
             {FitFoodsData.length > 0 &&
               FitFoodsData?.map((item) => {
-                return <EachCard  handlePostdataIncart={ handlePostdataIncart} key={item.id} item={item} />;
+                return (
+                  <EachCard
+                    handlePostdataIncart={handlePostdataIncart}
+                    key={item.id}
+                    item={item}
+                  />
+                );
               })}
           </div>
         </div>
@@ -197,7 +210,13 @@ const Home = () => {
           <div className="piceslashAlertDiv">
             {WellnessProductData.length > 0 &&
               WellnessProductData?.map((item) => {
-                return <EachCard  handlePostdataIncart={ handlePostdataIncart} key={item.id} item={item} />;
+                return (
+                  <EachCard
+                    handlePostdataIncart={handlePostdataIncart}
+                    key={item.id}
+                    item={item}
+                  />
+                );
               })}
           </div>
         </div>
@@ -234,7 +253,13 @@ const Home = () => {
           <div className="piceslashAlertDiv">
             {workoutEssentialData.length > 0 &&
               workoutEssentialData?.map((item) => {
-                return <EachCard  handlePostdataIncart={ handlePostdataIncart} key={item.id} item={item} />;
+                return (
+                  <EachCard
+                    handlePostdataIncart={handlePostdataIncart}
+                    key={item.id}
+                    item={item}
+                  />
+                );
               })}
           </div>
         </div>

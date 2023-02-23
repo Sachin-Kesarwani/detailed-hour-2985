@@ -1,4 +1,5 @@
-import { Loading ,
+import {
+  Loading,
   Error,
   GetFitFoods,
   GetFlashSalse,
@@ -6,78 +7,87 @@ import { Loading ,
   GetTopDeals,
   GetWellnessProduct,
   GetpriceslashAlert,
-  GetworkoutEssential
+  GetworkoutEssential,
 } from "./actiontype";
 
-
-
 let inistate = {
-
- 
-  FitFoodsData:[],
-  FlashSalseData:[],
-  PickDealsData:[],
-  TopDealsData:[],
-  WellnessProductData:[],
-  priceslashAlertData:[],
-  workoutEssentialData:[],
-  isLoading:false,
-  isError:false
+  FitFoodsData: [],
+  FlashSalseData: [],
+  PickDealsData: [],
+  TopDealsData: [],
+  WellnessProductData: [],
+  priceslashAlertData: [],
+  workoutEssentialData: [],
+  isLoading: false,
+  isError: false,
 };
 
-export function reducer(state = inistate,action) {
-
-   switch(action.type){
-
-    case(Loading):{
+export function reducer(state = inistate, action) {
+  switch (action.type) {
+    case Loading: {
       return {
-        ...state,isLoading:true
-      }
+        ...state,
+        isLoading: true,
+      };
     }
-    case(Error):{
+    case Error: {
       return {
-        ...state,isLoading:false,isError:true
-      }
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
     }
-    case(GetFitFoods):{
-        return {
-          ...state,FitFoodsData:action.payload,isLoading:false
-        }
-    }
-    case(GetFlashSalse):{
+    case GetFitFoods: {
       return {
-        ...state,FlashSalseData:action.payload,isLoading:false
-      }
+        ...state,
+        FitFoodsData: action.payload,
+        isLoading: false,
+      };
     }
-    case(GetPickDeals):{
+    case GetFlashSalse: {
       return {
-        ...state,PickDealsData:action.payload,isLoading:false
-      }
+        ...state,
+        FlashSalseData: action.payload,
+        isLoading: false,
+      };
     }
-    case(GetTopDeals):{
+    case GetPickDeals: {
       return {
-        ...state,TopDealsData:action.payload,isLoading:false
-      }
+        ...state,
+        PickDealsData: action.payload,
+        isLoading: false,
+      };
     }
-    case(GetWellnessProduct):{
+    case GetTopDeals: {
       return {
-        ...state,WellnessProductData:action.payload,isLoading:false
-      }
+        ...state,
+        TopDealsData: action.payload,
+        isLoading: false,
+      };
     }
-    case(GetpriceslashAlert):{
+    case GetWellnessProduct: {
       return {
-        ...state,priceslashAlertData:action.payload,isLoading:false
-      }
+        ...state,
+        WellnessProductData: action.payload,
+        isLoading: false,
+      };
     }
-    case(GetworkoutEssential):{
+    case GetpriceslashAlert: {
       return {
-        ...state,workoutEssentialData:action.payload,isLoading:false
-      }
+        ...state,
+        priceslashAlertData: action.payload,
+        isLoading: false,
+      };
     }
-    default:{
-      return state
+    case GetworkoutEssential: {
+      return {
+        ...state,
+        workoutEssentialData: action.payload,
+        isLoading: false,
+      };
     }
-   }
+    default: {
+      return state;
+    }
   }
-
- 
+}
