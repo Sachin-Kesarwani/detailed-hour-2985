@@ -1,0 +1,26 @@
+.piceslashAlertDiv{
+   width: 90%;
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+    margin: auto;
+    gap: 10px;
+}
+
+@media all and (min-width:880px) and (max-width:1100px){
+    .piceslashAlertDiv{
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+         margin: auto;
+         gap: 10px;
+     }
+}
+@media all and (min-width:469px) and (max-width:779px){
+    .piceslashAlertDiv{
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+         margin: auto;
+         gap: 10px;
+     }
+}

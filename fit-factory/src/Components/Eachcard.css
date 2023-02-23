@@ -1,0 +1,9 @@
+#eachcardBox{
+    width:22vw
+}
+
+@media all and (min-width:880px) and (max-width:1100px){
+    #eachcardBox{
+        width:25vw
+    }
+}
