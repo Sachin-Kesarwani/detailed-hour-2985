@@ -4,24 +4,293 @@ import Carousel from "../Carousel/Carousel";
 import EachCard from "../Components/HomeEachCard";
 import Carousel2 from "../Carousel/Carousel2";
 import BrandComany from "../Components/BrandComany";
-
+import { useDispatch, useSelector } from "react-redux";
+import {
+  GetFitFoodsFromjJson,
+  GetFlashSaleFromjJson,
+  GetPickDealsFromjJson,
+  GetTopDealsFromjJson,
+  GetpriceslashAlertFromjJson,
+  GetwellnessPersonelFromjJson,
+  GetWorkoutEssentialFromjJson,
+} from "../Redux/HomePageRedux/action";
+import "./home.css";
+import { Heading } from "@chakra-ui/react";
+import Loadingindicator from "../Components/Loading";
+import { Loading } from "../Redux/HomePageRedux/actiontype";
+import { useEffect } from "react";
+import Responsive from "../Carousel/ProductCarousel";
+import { Text } from "@chakra-ui/react";
+import { PostdataIncart, PostdataInWishList,DeldatafromWishlist } from "../Redux/CartRedux/action";
 const Home = () => {
+  let dispatch = useDispatch();
+
+  let loading = useSelector((store) => store?.HomePageReducer?.isLoading);
+  let PriceSlashData = useSelector(
+    (store) => store?.HomePageReducer?.FlashSalseData
+  );
+  let FitFoodsData = useSelector(
+    (store) => store?.HomePageReducer?.FitFoodsData
+  );
+  let PickDealsData = useSelector(
+    (store) => store?.HomePageReducer?.PickDealsData
+  );
+  let TopDealsData = useSelector(
+    (store) => store?.HomePageReducer.TopDealsData
+  );
+  let WellnessProductData = useSelector(
+    (store) => store?.HomePageReducer?.WellnessProductData
+  );
+  let priceslashAlertData = useSelector(
+    (store) => store?.HomePageReducer?.priceslashAlertData
+  );
+  let workoutEssentialData = useSelector(
+    (store) => store?.HomePageReducer?.workoutEssentialData
+  );
+
+  // FitFoodsData:[],
+  // FlashSalseData:[],
+  // PickDealsData:[],
+  // TopDealsData:[],
+  // WellnessProductData:[],
+  // priceslashAlertData:[],
+  // workoutEssentialData:[],
+
+  useEffect(() => {
+    dispatch(GetFitFoodsFromjJson);
+    dispatch(GetFlashSaleFromjJson);
+    dispatch(GetPickDealsFromjJson);
+    dispatch(GetTopDealsFromjJson);
+    dispatch(GetWorkoutEssentialFromjJson);
+    dispatch(GetpriceslashAlertFromjJson);
+    dispatch(GetwellnessPersonelFromjJson);
+  }, []);
+
+  let cartdata = useSelector((store) => store.CartReducer?.cart);
+  
+
+  // console.log(wishlist)
+  function handlePostdataIncart(id, data) { 
+    let userID = 5;
+    delete data.Position;
+   
+    if (cartdata.length && cartdata.length >= 1) {
+      let notThere = true;
+      for (let i = 0; i < cartdata.length; i++) {
+        if (cartdata[i].image == data.image) {
+          notThere = false;
+          break;
+        }
+      }
+
+      if (notThere) {
+        dispatch(PostdataIncart(userID, data));
+      }
+    }
+    if (cartdata.length == 0) {
+      dispatch(PostdataIncart(userID, data));
+    }
+  }
+////////////////////////////////////////////////////
+
+
   return (
     <div>
       <Carousel />
+
       <hr style={{ border: "3px solid #c2c2d6", marginBottom: "25px" }}></hr>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
-        <EachCard />
-        <EachCard />
-        <EachCard />
-        <EachCard />
-      </div>
+
+      {loading ? (
+        <Loadingindicator />
+      ) : (
+        <div>
+          <Heading
+            textAlign={"center"}
+            as="h3"
+            marginTop={"2vw"}
+            marginBottom={"2vw"}
+            size="lg"
+          >
+            Price Slash Alert
+          </Heading>
+          <div className="piceslashAlertDiv">
+            {PriceSlashData.length > 0 &&
+              PriceSlashData?.map((item) => {
+                return (
+                  <EachCard
+                  handlePostdataIncart={ handlePostdataIncart}
+               
+                    key={item.id}
+                    item={item}
+                  />
+                );
+              })}
+          </div>
+        </div>
+      )}
+
       <hr style={{ border: "3px solid #c2c2d6", marginBottom: "25px" }}></hr>
       <BrandImages />
+
+      {loading ? (
+        <Loadingindicator />
+      ) : (
+        <div>
+          <Heading
+            textAlign={"center"}
+            as="h3"
+            marginTop={"2vw"}
+            marginBottom={"2vw"}
+            size="lg"
+          >
+            Flash Sale
+          </Heading>
+          <div className="piceslashAlertDiv">
+            {TopDealsData.length > 0 &&
+              TopDealsData?.map((item) => {
+                return <EachCard  handlePostdataIncart={ handlePostdataIncart} key={item.id} item={item} />;
+              })}
+          </div>
+        </div>
+      )}
+
       <hr style={{ border: "3px solid #c2c2d6", marginTop: "40px" }}></hr>
       <Carousel2 />
+      {loading ? (
+        <Loadingindicator />
+      ) : (
+        <div>
+          <Heading
+            textAlign={"center"}
+            as="h3"
+            marginTop={"2vw"}
+            marginBottom={"2vw"}
+            size="lg"
+          >
+            Fit Foods
+          </Heading>
+          <div className="piceslashAlertDiv">
+            {FitFoodsData.length > 0 &&
+              FitFoodsData?.map((item) => {
+                return <EachCard  handlePostdataIncart={ handlePostdataIncart} key={item.id} item={item} />;
+              })}
+          </div>
+        </div>
+      )}
       <hr style={{ border: "3px solid #c2c2d6", marginTop: "40px" }}></hr>
       <BrandComany />
+      <hr style={{ border: "3px solid #c2c2d6", marginTop: "40px" }}></hr>
+      {loading ? (
+        <Loadingindicator />
+      ) : (
+        <div>
+          <Heading
+            textAlign={"center"}
+            as="h3"
+            marginTop={"2vw"}
+            marginBottom={"2vw"}
+            size="lg"
+          >
+            {" "}
+            Wellness & Personal Care
+          </Heading>
+          <div className="piceslashAlertDiv">
+            {WellnessProductData.length > 0 &&
+              WellnessProductData?.map((item) => {
+                return <EachCard  handlePostdataIncart={ handlePostdataIncart} key={item.id} item={item} />;
+              })}
+          </div>
+        </div>
+      )}
+      <hr
+        style={{
+          border: "3px solid #c2c2d6",
+          marginTop: "40px",
+          marginBottom: "30px",
+        }}
+      ></hr>
+      <BrandImages />
+      <hr
+        style={{
+          border: "3px solid #c2c2d6",
+          marginTop: "40px",
+          marginBottom: "30px",
+        }}
+      ></hr>
+      {loading ? (
+        <Loadingindicator />
+      ) : (
+        <div>
+          <Heading
+            textAlign={"center"}
+            marginTop={"2vw"}
+            marginBottom={"2vw"}
+            as="h3"
+            size="lg"
+          >
+            {" "}
+            Workout Essential Products
+          </Heading>
+          <div className="piceslashAlertDiv">
+            {workoutEssentialData.length > 0 &&
+              workoutEssentialData?.map((item) => {
+                return <EachCard  handlePostdataIncart={ handlePostdataIncart} key={item.id} item={item} />;
+              })}
+          </div>
+        </div>
+      )}
+
+      <hr
+        style={{
+          border: "3px solid #c2c2d6",
+          marginTop: "40px",
+          marginBottom: "30px",
+        }}
+      ></hr>
+
+      <div style={{ width: "90%", margin: "auto" }}>
+        <Heading as="h3" size="lg">
+          {" "}
+          Why Fit-Factory ?
+        </Heading>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)" }}>
+          <div>
+            <img src="https://img9.hkrtcdn.com/20791/normal_2079088_o.png" />
+            <Heading as="h5" size="sm">
+              Wide range of Nutritional products
+            </Heading>
+            <Text color={"gray.400"}>
+              One-stop fitness and health destination
+            </Text>
+          </div>
+          <div>
+            <img src="https://img3.hkrtcdn.com/20791/normal_2079092_o.png" />
+            <Heading as="h5" size="sm">
+              100% Original & Authentic
+            </Heading>
+            <Text color={"gray.400"}>
+              Tight control on sourcing and distribution
+            </Text>
+          </div>
+          <div>
+            <img src="https://img1.hkrtcdn.com/20791/normal_2079090_o.png" />
+            <Heading as="h5" size="sm">
+              Guide to Fit and Healthy Lifestyle
+            </Heading>
+            <Text color={"gray.400"}>
+              Your true partner in health & wellness journey
+            </Text>
+          </div>
+        </div>
+      </div>
+
+      <hr
+        style={{
+          border: "3px solid #c2c2d6",
+          marginTop: "40px",
+          marginBottom: "30px",
+        }}
+      ></hr>
     </div>
   );
 };
