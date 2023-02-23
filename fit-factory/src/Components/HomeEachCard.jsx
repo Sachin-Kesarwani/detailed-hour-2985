@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import "./Eachcard.css"
 import {
   Box,
   Heading,
@@ -12,19 +13,32 @@ import {
   Spacer,
   Button,
 } from "@chakra-ui/react";
-import { CheckCircleIcon, Icon, StarIcon } from "@chakra-ui/icons";
+import { CheckCircleIcon, Icon, StarIcon,ArrowForwardIcon } from "@chakra-ui/icons";
 import { BsArrowUpRight, BsHeartFill, BsHeart } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
-export default function EachCard() {
+import { useDispatch, useSelector } from "react-redux";
+import { PostdataIncart } from "../Redux/CartRedux/action";
+import { Link } from "react-router-dom";
+import { PostdataInWishList,DeldatafromWishlist } from "../Redux/CartRedux/action";
+export default function EachCard({item, handlePostdataIncart}) {
   const [liked, setLiked] = useState(false);
   function fun() {
-    console.log("ho");
+    // console.log("ho");
   }
-  return (
-    <Center py={6}>
+
+let [active,setActive]=useState(false)
+
+
+  
+
+console.log(liked)
+   return (
+
       <Box
-        // w="xs"
-        w="290px"
+      id="eachcardBox"
+       key={item.Position}
+    
+      w={"22vw"}
         rounded={"sm"}
         overflow={"hidden"}
         // bg="white"
@@ -52,7 +66,11 @@ export default function EachCard() {
               justifyContent={"space-between"}
               roundedBottom={"sm"}
               cursor="pointer"
-              onClick={() => setLiked(!liked)}
+              onClick={() =>{
+               
+                setLiked(!liked)
+              
+              }}
             >
               {liked ? (
                 <BsHeartFill fill="red" fontSize={"24px"} />
@@ -65,7 +83,7 @@ export default function EachCard() {
             <Img
               cursor={"pointer"}
               src={
-                "https://img1.hkrtcdn.com/19939/prd_1993850-MuscleBlaze-Fish-Oil-1000-mg-Indias-Only-Labdoor-USA-Certified-for-Purity-Accuracy-60-softgels_c_s.jpg"
+               item.image||"https://img1.hkrtcdn.com/19939/prd_1993850-MuscleBlaze-Fish-Oil-1000-mg-Indias-Only-Labdoor-USA-Certified-for-Purity-Accuracy-60-softgels_c_s.jpg"
               }
               margin={"auto"}
               roundedTop={"sm"}
@@ -88,11 +106,11 @@ export default function EachCard() {
               bg={"teal.300"}
               colorScheme="white"
             >
-              5.00 <Icon as={StarIcon} color="white" />
+            { item.rating ||3.9}<Icon as={StarIcon} color="white" />
             </Badge>
             <Spacer />
             <Text fontSize={"14px"} color={"gray.500"}>
-              100 reviews
+            {item.reviews || "2.9k " + " reviews"} 
             </Text>
             <Spacer />
             <Icon color={"green.300"} as={CheckCircleIcon} />
@@ -105,29 +123,24 @@ export default function EachCard() {
             color="white"
             mb={2}
           >
-            {/* <Text float={"left"} fontSize={"xs"} fontWeight="medium">
-              React
-            </Text> */}
+          
           </Box>
-          {/* <Heading color={"black"} fontSize={"2xl"} noOfLines={1}>
-            React v18.0
-          </Heading> */}
+       
           <Text textAlign={"left"} color={"gray.700"} noOfLines={2}>
-            In this post, we will give an overview of what is new in React 18,
-            and what it means for the future.
+           {item.title || "Hello sachin"}
           </Text>
           <Flex>
             <Heading as="h4" size="md">
-              ₹400
+             ₹ {item.newprice|| "₹400"} 
             </Heading>
             <Spacer />
             <Text fontSize="sm">
-              <del> ₹300</del>
+              <del> ₹ {item.oldprice ||"₹ 300"} </del>
             </Text>
             <Spacer />
             <Text fontSize="sm" color={"green.600"}>
-              {" "}
-              40% OFF
+              {((item.oldprice-item.newprice)*100/item.oldprice).toFixed(2)||"40"}
+           %  OFF
             </Text>
             <Spacer />
             <Spacer /> <Spacer />
@@ -144,7 +157,30 @@ export default function EachCard() {
               <Icon as={StarIcon} color={"orange.500"} /> dgfehggrjuhr
             </Text>
           </Box>
-          <Box
+
+          {
+            active? <Link to="/cart" >
+            <Box
+            // onClick={()=>setActive(!active)}
+            cursor={"pointer"}
+            bg={"teal.400"}
+            _hover={{ bg: "white", color: "teal.500" }}
+            padding={"10px 15px"}
+            borderRadius={"10px"}
+            fontSize={"17px"}
+            color={"white"}
+            fontWeight={"bold"}
+            border={"1.5px solid teal"}
+            marginTop={"10px"}
+            marginBottom={"10px"}
+            textAlign={"center"}
+          >
+           Go To Cart   <Icon as={ArrowForwardIcon} h={5} w={5} alignSelf={"center"} />
+          </Box> </Link> :   <Box
+          onClick={()=>{
+            handlePostdataIncart(item.Position,item)
+            setActive(!active)
+          }}
             cursor={"pointer"}
             _hover={{ bg: "orange", color: "white" }}
             padding={"10px 15px"}
@@ -155,29 +191,31 @@ export default function EachCard() {
             border={"1.5px solid orange"}
             marginTop={"10px"}
             marginBottom={"10px"}
+            textAlign={"center"}
           >
             <Icon as={FiShoppingCart} h={5} w={5} alignSelf={"center"} /> Add To
             Cart
           </Box>
+          }
+          {/* <Box
+            cursor={"pointer"}
+            _hover={{ bg: "orange", color: "white" }}
+            padding={"10px 15px"}
+            borderRadius={"10px"}
+            fontSize={"17px"}
+            color={"orange.400"}
+            fontWeight={"bold"}
+            border={"1.5px solid orange"}
+            marginTop={"10px"}
+            marginBottom={"10px"}
+            textAlign={"center"}
+          >
+            <Icon as={FiShoppingCart} h={5} w={5} alignSelf={"center"} /> Add To
+            Cart
+          </Box> */}
         </Box>
 
-        <Box
-          onClick={fun}
-          cursor={"pointer"}
-          _hover={{ bg: "orange", color: "white" }}
-          padding={"10px 15px"}
-          borderRadius={"10px"}
-          fontSize={"17px"}
-          color={"orange.400"}
-          fontWeight={"bold"}
-          border={"1.5px solid orange"}
-          marginTop={"10px"}
-          marginBottom={"10px"}
-        >
-          <Icon as={FiShoppingCart} h={5} w={5} alignSelf={"center"} /> Add To
-          Cart
-        </Box>
       </Box>
-    </Center>
+    // </Center>
   );
 }

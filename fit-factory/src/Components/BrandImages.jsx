@@ -13,8 +13,8 @@ const BrandImages = () => {
     <div id="brandImageMainDiv">
       {brand.map((e) => {
         return (
-          <div>
-            <img key={e} src={e} />
+          <div  key={e}>
+            <img src={e} />
           </div>
         );
       })}
