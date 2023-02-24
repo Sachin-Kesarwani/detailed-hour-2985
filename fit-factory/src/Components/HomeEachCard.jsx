@@ -22,7 +22,10 @@ import {
 import { BsArrowUpRight, BsHeartFill, BsHeart } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { PostdataIncart } from "../Redux/CartRedux/action";
+import {
+  GetwishListdatafromjson,
+  PostdataIncart,
+} from "../Redux/CartRedux/action";
 import { Link } from "react-router-dom";
 import {
   PostdataInWishList,
@@ -35,8 +38,47 @@ export default function EachCard({ item, handlePostdataIncart }) {
   }
 
   let [active, setActive] = useState(false);
+  let dispatch = useDispatch();
+  let wishlistdata = useSelector((store) => store.CartReducer.wishlist);
+  function AddInWishList(item, id) {
+    console.log(item);
+    console.log(id);
+    // item.id=item.Position
 
-  console.log(liked);
+    if (liked) {
+      console.log(id);
+
+      // for(let i=0;i< wishlistdata.length;i++){
+      //   if( wishlistdata[i].image==item.image){
+      //    ID= wishlistdata[i].Position
+      //    break
+      //             }
+      //     }
+      let data = wishlistdata?.filter((e) => e.image == item.image);
+      console.log(data);
+      console.log(wishlistdata, "wishlist");
+      dispatch(DeldatafromWishlist(data[0].id || id));
+    }
+    if (!liked) {
+      if (wishlistdata.length == 0) {
+        dispatch(PostdataInWishList(item));
+      } else {
+        let notthere = true;
+        for (let i = 0; i < wishlistdata.length; i++) {
+          if (wishlistdata[i].image == item.image) {
+            notthere = false;
+            break;
+          }
+        }
+        if (notthere) {
+          dispatch(PostdataInWishList(item));
+        }
+      }
+    }
+  }
+  //   useEffect(()=>{
+  //  dispatch(GetwishListdatafromjson)
+  //   },[])
   return (
     <Box
       id="eachcardBox"
@@ -70,7 +112,8 @@ export default function EachCard({ item, handlePostdataIncart }) {
             roundedBottom={"sm"}
             cursor="pointer"
             onClick={() => {
-              setLiked(!liked);
+              setLiked((prev) => !liked);
+              AddInWishList(item, item.Position);
             }}
           >
             {liked ? (
