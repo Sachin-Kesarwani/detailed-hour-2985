@@ -44,7 +44,7 @@ export default function EachCard({ item, handlePostdataIncart }) {
     // item.id=item.Position
 
     if (liked) {
-      console.log(id);
+     
 
       // for(let i=0;i< wishlistdata.length;i++){
       //   if( wishlistdata[i].image==item.image){
