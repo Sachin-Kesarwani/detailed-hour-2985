@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 function App() {
 let param=useParams()
-console.log(param)
+
   return (
     <div className="App">
       <Navbar />
