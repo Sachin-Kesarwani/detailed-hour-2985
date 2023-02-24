@@ -53,7 +53,7 @@ const Home = () => {
     (store) => store?.HomePageReducer?.workoutEssentialData
   );
 
-  // FitFoodsData:[],
+
   // FlashSalseData:[],
   // PickDealsData:[],
   // TopDealsData:[],
