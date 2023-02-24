@@ -23,7 +23,9 @@ export default function Navbar() {
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <HStack spacing={8} alignItems={"center"}>
-            <Image src="Logo.jpeg" alt="logo" w="240px" h="62px" />
+            <Link to="/">
+              <Image src="Logo.jpeg" alt="logo" w="240px" h="62px" />
+            </Link>
 
             {/* ----------- SearchBar & SearchButton ------ */}
             <HStack>
