@@ -51,6 +51,8 @@ export default function Navbar() {
 
             {/* ----------- SearchBar & SearchButton ------ */}
             <HStack>
+
+              
               <Input
                 placeholder="Search for products & brands"
                 w="500px"
