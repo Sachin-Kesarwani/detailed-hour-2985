@@ -23,7 +23,7 @@ const Login = () => {
     let data = await res.data;
 
     data.map((el) => {
-      if (el.email === loginEmail && el.password === loginPassword) {
+      if (el.email == loginEmail && el.password == loginPassword) {
         navigate("/");
         toast({
           title: "Account created.",
