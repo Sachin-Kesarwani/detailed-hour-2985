@@ -27,7 +27,7 @@ const SignUp = () => {
       password: signupPassword,
       phone: signupPhone,
       wishlist: [],
-      cart: [{ id: 1 }],
+      cart: [],
     };
 
     axios
