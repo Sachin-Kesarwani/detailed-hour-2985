@@ -8,9 +8,9 @@ let param=useParams()
 console.log(param)
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <AllRoutes />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

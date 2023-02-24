@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
 import {
   IconButton,
-  Avatar,
+
   Box,
   CloseButton,
   Flex,
   HStack,
-  VStack,
+
   Icon,
   useColorModeValue,
   Link,
@@ -14,45 +14,35 @@ import {
   DrawerContent,
   Text,
   useDisclosure,
-  BoxProps,
-  FlexProps,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
+
   Image,
 } from '@chakra-ui/react';
 import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
+
   FiMenu,
-  FiBell,
-  FiChevronDown,
+
 } from 'react-icons/fi';
-import { IconType } from 'react-icons';
-import { ReactText } from 'react';
+
 
 
 const LinkItems = [
-  { name: 'Statistics'},
-  { name: 'Products'},
-  { name: 'Customers'},
-  { name: 'Admin Users'},
+  { name: 'Statistics',preview:"stats"},
+  { name: 'Products',preview:"allproducts"},
+  { name: 'Users',preview:"users"},
+  { name: 'Admins',preview:"admins"},
 
 ];
 
 export default function SidebarWithHeader({
   children,
+  changePreview
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box  bg={useColorModeValue('gray.900', 'gray.900')}>
       <SidebarContent
         onClose={() => onClose}
+        changePreview={changePreview}
         display={{ base: 'none', md: 'block' }}
       />
       <Drawer
@@ -78,7 +68,8 @@ export default function SidebarWithHeader({
 
 
 
-const SidebarContent = ({ onClose, ...rest }) => {
+const SidebarContent = ({ onClose,changePreview, ...rest }) => {
+  console.log(changePreview)
   return (
     <Box
       transition="3s ease"
@@ -96,7 +87,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} onClick={()=>{changePreview(link.preview)}}>
           {link.name}
         </NavItem>
       ))}
