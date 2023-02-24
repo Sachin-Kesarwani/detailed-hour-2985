@@ -245,6 +245,26 @@
       "oldprice": 4999,
       "premium": 3000,
       "id": 24
+    },
+    {
+      "image": "https://img5.hkrtcdn.com/20643/prd_2064214-HealthKart-HK-Vitals-Biotin-10000-mcg-90-tablets-Unflavoured_c_s.jpg",
+      "rating": 4.4,
+      "reviews": "808 reviews",
+      "title": "HealthKart HK Vitals Biotin (10000 mcg), 90 tablet(s) Unflavoured",
+      "newprice": 499,
+      "oldprice": 659,
+      "premium": 484,
+      "id": 25
+    },
+    {
+      "image": "https://img7.hkrtcdn.com/22712/prd_2271106-HealthKart-HK-Vitals-Collagen-Face-Moisturiser-50-ml-with-Hyaluronic-Acid_c_s.jpg",
+      "rating": 4.6,
+      "reviews": "808 reviews",
+      "title": "HealthKart HK Vitals Collagen Face Moisturizer, 50 ml with Hyaluronic Acid",
+      "newprice": 479,
+      "oldprice": 559,
+      "premium": 465,
+      "id": 26
     }
   ],
   "wishlist": [
