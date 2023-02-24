@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@chakra-ui/react'
+import { Flex, Heading,Box } from '@chakra-ui/react'
 import React from 'react'
 
 const Account = () => {
@@ -6,7 +6,7 @@ const Account = () => {
     <div>
     <Flex>
         <Box>
-            
+
         </Box>
     </Flex>
     </div>
