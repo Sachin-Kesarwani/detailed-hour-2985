@@ -24,6 +24,7 @@ const Login = () => {
 
     data.map((el) => {
       if (el.email === loginEmail && el.password === loginPassword) {
+        localStorage.setItem("accountdata", JSON.stringify(el));
         navigate("/");
         toast({
           title: "Account created.",
@@ -45,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <FormControl bg="#f2e3c6" p="20px">
+    <FormControl bg={"#f2e3c6"} p="20px">
       <Flex>
         <Image
           src="https://static1.hkrtcdn.com/hknext/static/media/login/slider/1.svg"
@@ -77,7 +78,12 @@ const Login = () => {
             onChange={(e) => setLoginPassword(e.target.value)}
           />
 
-          <Button colorScheme={"teal"} m="5px" onClick={() => LoginCheck()}>
+          <Button
+            bg={"teal.400"}
+            color={"white"}
+            m="5px"
+            onClick={() => LoginCheck()}
+          >
             Login
           </Button>
 

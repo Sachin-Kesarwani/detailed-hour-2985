@@ -25,6 +25,7 @@ import {
   PostdataIncart,
   PostdataInWishList,
   DeldatafromWishlist,
+  GetwishListdatafromjson,
 } from "../Redux/CartRedux/action";
 const Home = () => {
   let dispatch = useDispatch();
@@ -68,6 +69,7 @@ const Home = () => {
     dispatch(GetWorkoutEssentialFromjJson);
     dispatch(GetpriceslashAlertFromjJson);
     dispatch(GetwellnessPersonelFromjJson);
+    dispatch(GetwishListdatafromjson)
   }, []);
 
   let cartdata = useSelector((store) => store.CartReducer?.cart);
