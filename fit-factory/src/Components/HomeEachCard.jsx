@@ -33,9 +33,7 @@ import {
 } from "../Redux/CartRedux/action";
 export default function EachCard({ item, handlePostdataIncart }) {
   const [liked, setLiked] = useState(false);
-  function fun() {
-    // console.log("ho");
-  }
+
 
   let [active, setActive] = useState(false);
   let dispatch = useDispatch();
