@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Flex,
@@ -12,10 +12,11 @@ import {
 } from "@chakra-ui/react";
 import MegaMenu from "./MegaMenu";
 import { BsCartPlus } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <>
@@ -28,11 +29,18 @@ export default function Navbar() {
             <HStack>
               <Input
                 placeholder="Search for products & brands"
+                value={searchQuery}
                 w="500px"
                 display={{ base: "none", md: "flex" }}
                 border="2px solid teal"
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <Button colorScheme={"teal"}>Search</Button>
+              <Link to={`/searchpage/${searchQuery}`}>
+                {" "}
+                <Button colorScheme={"teal"} onClick={() => setSearchQuery("")}>
+                  Search
+                </Button>
+              </Link>
             </HStack>
           </HStack>
 
@@ -56,22 +64,24 @@ export default function Navbar() {
             </Button>
 
             {/* ----------- Cart Icon ------------ */}
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={"full"}
-                variant={"link"}
-                cursor={"pointer"}
-              >
-                <BsCartPlus
-                  style={{
-                    height: "30px",
-                    width: "30px",
-                    marginLeft: "5px 25px",
-                  }}
-                />
-              </MenuButton>
-            </Menu>
+            <Link to="/cart">
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  rounded={"full"}
+                  variant={"link"}
+                  cursor={"pointer"}
+                >
+                  <BsCartPlus
+                    style={{
+                      height: "30px",
+                      width: "30px",
+                      marginLeft: "5px 25px",
+                    }}
+                  />
+                </MenuButton>
+              </Menu>
+            </Link>
           </Flex>
         </Flex>
       </Box>
