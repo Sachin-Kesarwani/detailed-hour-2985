@@ -146,7 +146,7 @@ console.log(cartdata)
               PriceSlashData?.map((item) => {
                 return (
                   <EachCard
-                  category="flashsale"
+                    category="flashsale"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}
@@ -178,7 +178,7 @@ console.log(cartdata)
               TopDealsData?.map((item) => {
                 return (
                   <EachCard
-                  category="topDeals"
+                    category="topDeals"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}
@@ -209,7 +209,7 @@ console.log(cartdata)
               FitFoodsData?.map((item) => {
                 return (
                   <EachCard
-                  category="fitfoods"
+                    category="fitfoods"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}
@@ -241,7 +241,7 @@ console.log(cartdata)
               WellnessProductData?.map((item) => {
                 return (
                   <EachCard
-                  category="wellness&personel"
+                    category="wellness&personel"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}
@@ -285,7 +285,7 @@ console.log(cartdata)
               workoutEssentialData?.map((item) => {
                 return (
                   <EachCard
-                  category="workoutEssential"
+                    category="workoutEssential"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}

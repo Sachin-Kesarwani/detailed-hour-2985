@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const toast = useToast();
@@ -27,7 +27,8 @@ const SignUp = () => {
       password: signupPassword,
       phone: signupPhone,
       wishlist: [],
-      cart: [{ id: 1 }],
+      cart: [],
+      order: [],
     };
 
     axios
@@ -37,7 +38,6 @@ const SignUp = () => {
         localStorage.setItem("accountdata", JSON.stringify(res.data));
         localStorage.setItem("isAuth", true);
         navigate("/");
-
         toast({
           title: "Account created.",
           description: "We've created your account for you.",

@@ -7,6 +7,10 @@ import SingleCard from '../Components/SingleCard'
 import SlideShow from '../Slideshow/SlideShow'
 import "./home.css"
 const SinglePage = () => {
+  // let params = useParams();
+  // let { id, title } = params;
+  // let [data, setdata] = useState([]);
+  console.log(params);
 
   let params=useParams()
   let {id,title}=params
@@ -58,7 +62,7 @@ return <SingleCard  item={e} />
        <SlideShow noofslidocard={4} category={title} data={suggestion}/>
        <hr style={{ border: "1px solid #c2c2d6", marginTop: "10px" ,marginBottom:"10px"}}></hr>
     </div>
-  )
-}
+  );
+};
 
-export default SinglePage
+export default SinglePage;
