@@ -48,6 +48,77 @@ export default function Navbar() {
 
           <Flex alignItems={"center"}>
             {/* -------------- SignUp ------------- */}
+
+            {isAuth ? (
+              <Popover placement="top-start">
+                <PopoverTrigger>
+                  
+                  <i
+                    cursor={"pointer"}
+                    class="fas fa-user-alt"
+                    style={{ fontSize: "26px", marginRight: "45px" }}
+                  ></i>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverHeader fontWeight="semibold" bg="teal.500">
+                    <Flex>
+                      <Avatar
+                        bg={"white"}
+                        color={"teal"}
+                        size="md"
+                        name={`${accountdata.name}`}
+                      />
+                      <Heading color="white" as="h3" size="lg">
+                        Hi , {accountdata.name}{" "}
+                      </Heading>{" "}
+                    </Flex>{" "}
+                  </PopoverHeader>
+                  <PopoverArrow />
+                  <PopoverCloseButton color="white" />
+                  <PopoverBody>
+                    <Text
+                      textAlign={"center"}
+                      onClick={() => {
+                        navigate("/account");
+                      }}
+                      fontSize={"20px"}
+                      cursor={"pointer"}
+                      color={"gray.500"}
+                    >
+                      <i
+                        style={{ fontSize: "24px", color: "gray" }}
+                        class="fas"
+                      >
+                        &#xf004;
+                      </i>{" "}
+                      WishList
+                    </Text>
+                    <Text
+                      textAlign={"center"}
+                      onClick={handleLogout}
+                      cursor={"pointer"}
+                      color={"orange.400"}
+                    >
+                      {" "}
+                      <i
+                        class="fa fa-sign-out"
+                        style={{ fontSize: "24px" }}
+                      ></i>{" "}
+                      Logout
+                    </Text>
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
+            ) : (
+              <Flex>
+                <Button
+                  colorScheme={"teal"}
+                  m="5px 15px"
+                  onClick={() => navigate("/signup")}
+                >
+                  SignUp
+                </Button>
+
             <Button
               colorScheme={"teal"}
               m="5px 15px"

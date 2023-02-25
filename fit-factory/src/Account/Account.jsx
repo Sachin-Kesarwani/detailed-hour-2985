@@ -6,7 +6,7 @@ const Account = () => {
     <div>
     <Flex>
         <Box>
-
+<Heading>Hi Iam account</Heading>
         </Box>
     </Flex>
     </div>
