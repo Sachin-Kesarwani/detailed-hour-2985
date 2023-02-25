@@ -18,7 +18,7 @@ import {
   PopoverHeader,
   Text,
   Heading,
-  PopoverContent
+  PopoverContent,
 } from "@chakra-ui/react";
 import MegaMenu from "./MegaMenu";
 import { BsCartPlus } from "react-icons/bs";
@@ -26,14 +26,15 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  let isAuth=localStorage.getItem("isAuth")
+  let isAuth = localStorage.getItem("isAuth");
   const [searchQuery, setSearchQuery] = useState("");
-let accountdata=JSON.parse(localStorage.getItem("accountdata"))
-function handleLogout(){
-  localStorage.setItem(false)
-}
+  let accountdata = JSON.parse(localStorage.getItem("accountdata"));
+  function handleLogout() {
+    localStorage.setItem(false);
+  }
+
   return (
-    <>
+    <Box pos="fixed" zIndex={2} w="100%">
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <HStack spacing={8} alignItems={"center"}>
@@ -66,7 +67,6 @@ function handleLogout(){
             {isAuth ? (
               <Popover placement="top-start">
                 <PopoverTrigger>
-                  
                   <i
                     cursor={"pointer"}
                     class="fas fa-user-alt"
@@ -133,50 +133,40 @@ function handleLogout(){
                   SignUp
                 </Button>
 
-            {/* <Button
-              colorScheme={"teal"}
-              m="5px 15px"
-              onClick={() => navigate("/signup")}
-            >
-              SignUp
-            </Button> */}
-
-            {/* ---------- Login ----------- */}
-            <Button
-              colorScheme={"teal"}
-              m="5px 15px"
-              onClick={() => navigate("/login")}
-            >
-              Login
-            </Button>
-
-            {/* ----------- Cart Icon ------------ */}
-            <Link to="/cart">
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  rounded={"full"}
-                  variant={"link"}
-                  cursor={"pointer"}
+                {/* ---------- Login ----------- */}
+                <Button
+                  colorScheme={"teal"}
+                  m="5px 15px"
+                  onClick={() => navigate("/login")}
                 >
-                  <BsCartPlus
-                    style={{
-                      height: "30px",
-                      width: "30px",
-                      marginLeft: "5px 25px",
-                    }}
-                  />
-                </MenuButton>
-              </Menu>
-            </Link>
+                  Login
+                </Button>
+
+                {/* ----------- Cart Icon ------------ */}
+                <Link to="/cart">
+                  <Menu>
+                    <MenuButton
+                      as={Button}
+                      rounded={"full"}
+                      variant={"link"}
+                      cursor={"pointer"}
+                    >
+                      <BsCartPlus
+                        style={{
+                          height: "30px",
+                          width: "30px",
+                          marginLeft: "5px 25px",
+                        }}
+                      />
+                    </MenuButton>
+                  </Menu>
+                </Link>
+              </Flex>
+            )}
           </Flex>
-            )
-                  }
-            
         </Flex>
-        </Flex>     
       </Box>
       <MegaMenu />
-    </>
+    </Box>
   );
 }
