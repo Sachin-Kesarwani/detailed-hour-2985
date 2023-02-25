@@ -4,13 +4,13 @@ import AllRoutes from "./Pages/AllRoutes";
 import { useParams } from "react-router-dom";
 
 function App() {
-  let param = useParams();
-  console.log(param);
+  let {param} = useParams();
+  console.log("param"+param);
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <AllRoutes />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
