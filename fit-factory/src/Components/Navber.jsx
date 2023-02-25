@@ -34,7 +34,7 @@ export default function Navbar() {
   }
 
   return (
-    <>
+    <Box pos="fixed" zIndex={2} w="100%">
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <HStack spacing={8} alignItems={"center"}>
@@ -167,6 +167,6 @@ export default function Navbar() {
         </Flex>
       </Box>
       <MegaMenu />
-    </>
+    </Box>
   );
 }

@@ -1,4 +1,12 @@
-import { Badge, Box, Button, Grid, GridItem, Image } from "@chakra-ui/react";
+import {
+  Badge,
+  Box,
+  Button,
+  Grid,
+  GridItem,
+  Image,
+  Select,
+} from "@chakra-ui/react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
@@ -6,15 +14,17 @@ import React, { useState, useEffect } from "react";
 const Proteins = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+  const [order, setOrder] = useState("asc");
+  const [sort, setSort] = useState("Price");
 
-  const fetchData = (page) => {
+  const fetchData = (page, order, sort) => {
     return axios.get(
-      `https://helpful-free-baroness.glitch.me/Proteins?_limit=12&_page=${page}`
+      `https://helpful-free-baroness.glitch.me/Proteins?_limit=12&_page=${page}&_sort=${sort}&_order=${order}`
     );
   };
 
   useEffect(() => {
-    fetchData(page)
+    fetchData(page, order, sort)
       .then((res) => {
         console.log("ProteinsData: ", res.data);
         setData(res.data);
@@ -22,10 +32,40 @@ const Proteins = () => {
       .catch((err) => {
         console.log("Error: ", err);
       });
-  }, [page]);
+  }, [page, order, sort]);
+
+  const sortChange = () => {
+    const changeValue = document.getElementById("sortBy").value;
+    if (changeValue === "Lowest_Price") {
+      setOrder("asc");
+    } else if (changeValue === "Highest_Price") {
+      setOrder("desc");
+    }
+  };
 
   return (
     <>
+      {/* ------- Sort By Price ------- */}
+      <Select
+        m="7px"
+        ml="30px"
+        w="175px"
+        bg="cyan"
+        color="black"
+        fontWeight="bold"
+        name="SortBy"
+        id="sortBy"
+        onChange={sortChange}
+      >
+        <option value="sortby">SORT BY Price</option>
+        <option value="Lowest_Price" id="lowestPrice">
+          Low to High
+        </option>
+        <option value="Highest_Price" id="highestPrice">
+          High to Low
+        </option>
+      </Select>
+
       {/* Proteins */}
       <Grid
         templateColumns={{ sm: "repeat(1,1fr)", md: "repeat(4,1fr)" }}

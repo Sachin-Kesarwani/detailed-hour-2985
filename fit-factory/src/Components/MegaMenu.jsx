@@ -17,7 +17,13 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 
 const MegaMenu = () => {
   return (
-    <Box w={{ base: "100%", lg: "100%" }} p="5px 2%" margin="auto">
+    <Box
+      w={{ base: "100%", lg: "100%" }}
+      p="5px 2%"
+      margin="auto"
+      bg="white"
+      fontWeight="bold"
+    >
       <Grid
         templateColumns={{
           base: "repeat(2, 1fr)",
