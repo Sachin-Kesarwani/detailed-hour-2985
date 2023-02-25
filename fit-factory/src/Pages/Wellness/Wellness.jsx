@@ -72,7 +72,7 @@ const Wellness = () => {
                     </Box>
                   </Box>
 
-                  <Link to={`/productdetails/${el.id}`}>
+                  <Link to={`/singlePage/${"Herbs-For-Hair-Growth"}/${el.id}`}>
                     <Button
                       w="100%"
                       margin="auto"

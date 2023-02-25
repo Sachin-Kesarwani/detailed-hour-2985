@@ -72,7 +72,7 @@ const WorkoutEssentials = () => {
                     </Box>
                   </Box>
 
-                  <Link to={`/productdetails/${el.id}`}>
+                  <Link to={`/singlePage/${"Workout-Essentials"}/${el.id}`}>
                     <Button
                       w="100%"
                       margin="auto"

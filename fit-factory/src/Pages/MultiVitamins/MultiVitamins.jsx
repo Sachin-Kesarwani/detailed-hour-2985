@@ -72,7 +72,7 @@ const MultiVitamins = () => {
                     </Box>
                   </Box>
 
-                  <Link to={`/productdetails/${el.id}`}>
+                  <Link to={`/singlePage/${"Omega-Fatty-Acids"}/${el.id}`}>
                     <Button
                       w="100%"
                       margin="auto"
