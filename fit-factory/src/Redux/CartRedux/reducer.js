@@ -4,6 +4,7 @@ import {
   Loading,
   Error,
   DelfromWishlist,
+  GetwishlistData,
 } from "./actiontype";
 
 let inistate = {
@@ -39,7 +40,7 @@ export function reducer(state = inistate, action) {
     case AddInWishList: {
       return {
         ...state,
-        wishlist: [...state.wishlist, action.payload],
+      
         isLoading: false,
       };
     }
@@ -49,7 +50,11 @@ export function reducer(state = inistate, action) {
         wishlist: state.wishlist?.map((e) => e.Position !== action.payload),
       };
     }
-
+case(GetwishlistData):{
+  return {
+    ...state,wishlist:action.payload
+  }
+}
     default: {
       return state;
     }

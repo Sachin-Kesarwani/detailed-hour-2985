@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const toast = useToast();
@@ -27,13 +27,17 @@ const SignUp = () => {
       password: signupPassword,
       phone: signupPhone,
       wishlist: [],
-      cart: [],
+      cart: [{ id: 1 }],
     };
 
     axios
       .post(`https://helpful-free-baroness.glitch.me/Users`, signupobj)
-      .then(() => {
+      .then((res) => {
+        console.log(res.data);
+        localStorage.setItem("accountdata", JSON.stringify(res.data));
+        localStorage.setItem("isAuth", true);
         navigate("/");
+
         toast({
           title: "Account created.",
           description: "We've created your account for you.",
@@ -102,7 +106,12 @@ const SignUp = () => {
             onChange={(e) => setSignupPhone(e.target.value)}
           />
 
-          <Button colorScheme={"teal"} m="5px" onClick={() => SignUpCheck()}>
+          <Button
+            bg={"teal.400"}
+            color={"white"}
+            m="5px"
+            onClick={() => SignUpCheck()}
+          >
             SignUp
           </Button>
 

@@ -1,11 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Account from "../Account/Account";
 import Admin from "../Admin/admin";
 import Login from "../Components/Login";
 import SignUp from "../Components/SignUp";
 import Cart from "./Cart";
 import Home from "./Home";
 import SearchPage from "./SearchPage";
+import SinglePage from "./SinglePage";
 import ProductDetails from "./ProductDetails";
 import Proteins from "./Proteins/Proteins";
 import Gainers from "./Gainers/Gainers";
@@ -21,6 +23,7 @@ const AllRoutes = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
@@ -33,6 +36,7 @@ const AllRoutes = () => {
         <Route path="/prepostworkout" element={<PrePostWorkout />} />
         <Route path="/multivitamins" element={<MultiVitamins />} />
         <Route path="/searchpage/:query" element={<SearchPage />} />
+        <Route path="/singlePage/:title/:id" element={<SinglePage />} />
         <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/workoutessentials" element={<WorkoutEssentials />} />
       </Routes>

@@ -7,21 +7,22 @@ import {
     StatNumber,
     useColorModeValue,
   } from '@chakra-ui/react';
+import Admins from './admins';
   
   function StatsCard(props) {
     const { title, stat } = props;
     return (
       <Stat
-        px={{ base: 4, md: 8 }}
-        py={'5'}
+        px={{ base: 2, md: 5 }}
+        py={'8'}
         shadow={'xl'}
         border={'1px solid'}
         borderColor={useColorModeValue('gray.800', 'gray.500')}
         rounded={'lg'}>
-        <StatLabel fontWeight={'medium'} isTruncated>
+        <StatLabel fontWeight={'medium'} fontSize={'xl'} isTruncated>
           {title}
         </StatLabel>
-        <StatNumber fontSize={'2xl'} fontWeight={'medium'}>
+        <StatNumber fontSize={'3xl'} fontWeight={'medium'}>
           {stat}
         </StatNumber>
       </Stat>
@@ -30,20 +31,23 @@ import {
   
   export default function Stats() {
     return (
-      <Box maxW="7xl" mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
+      <>
+      <Box maxW="2xl" m={'auto'}  px={{ base: 2, sm: 10, md: 3 }}>
         <chakra.h1
           textAlign={'center'}
-          fontSize={'4xl'}
+          fontSize={'3xl'}
           py={10}
           fontWeight={'bold'}>
           What is our company doing?
         </chakra.h1>
-        <SimpleGrid columns={{ base: 1, md: 4 }} spacing={{ base: 5, lg: 8 }}>
-          <StatsCard title={'We serve'} stat={'50,000 people'} />
-          <StatsCard title={'In'} stat={'30 different countries'} />
-          <StatsCard title={'Who speak'} stat={'100 different languages'} />
-          <StatsCard title={'Who speak'} stat={'100 different languages'} />
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, lg: 8 }}>
+          <StatsCard title={'Total'} stat={'2500 Products Available'} />
+          <StatsCard title={'We serve'} stat={'50,000 Users'} />
+          {/* <StatsCard title={'Who speak'} stat={'100 different languages'} />
+          <StatsCard title={'Who speak'} stat={'100 different languages'} /> */}
         </SimpleGrid>
       </Box>
+      <Admins/>
+          </>
     );
   }
