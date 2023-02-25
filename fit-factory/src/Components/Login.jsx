@@ -39,7 +39,7 @@ const Login = () => {
           description: "Your data is not matched to our record",
           status: "failure",
           duration: 5000,
-          isClosable: false,
+          isClosable: true,
         });
       }
     });
@@ -61,29 +61,26 @@ const Login = () => {
             Login
           </Text>
           <Input
+            m="10px 5px"
             w="500px"
+            id="loginemail"
             type="email"
             placeholder="Email"
-            m="10px 5px"
             display={{ base: "none", md: "flex" }}
             border="1px solid teal"
             onChange={(e) => setLoginEmail(e.target.value)}
           />
           <Input
+            m="10px 5px"
+            id="loginpassword"
             type="password"
             placeholder="Password"
-            m="10px 5px"
             display={{ base: "none", md: "flex" }}
             border="1px solid teal"
             onChange={(e) => setLoginPassword(e.target.value)}
           />
 
-          <Button
-            bg={"teal.400"}
-            color={"white"}
-            m="5px"
-            onClick={() => LoginCheck()}
-          >
+          <Button bg="teal.400" color="white" m="5px" onClick={LoginCheck}>
             Login
           </Button>
 
