@@ -122,6 +122,7 @@ const Home = () => {
               PriceSlashData?.map((item) => {
                 return (
                   <EachCard
+                  category="flashsale"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}
@@ -153,6 +154,7 @@ const Home = () => {
               TopDealsData?.map((item) => {
                 return (
                   <EachCard
+                  category="topDeals"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}
@@ -183,6 +185,7 @@ const Home = () => {
               FitFoodsData?.map((item) => {
                 return (
                   <EachCard
+                  category="fitfoods"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}
@@ -214,6 +217,7 @@ const Home = () => {
               WellnessProductData?.map((item) => {
                 return (
                   <EachCard
+                  category="wellness&personel"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}
@@ -257,6 +261,7 @@ const Home = () => {
               workoutEssentialData?.map((item) => {
                 return (
                   <EachCard
+                  category="workoutEssential"
                     handlePostdataIncart={handlePostdataIncart}
                     key={item.id}
                     item={item}

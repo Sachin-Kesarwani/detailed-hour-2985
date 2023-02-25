@@ -67,7 +67,9 @@ export default function Navbar() {
             {isAuth ? (
               <Popover placement="top-start">
                 <PopoverTrigger>
+                  
                   <i
+                    cursor={"pointer"}
                     class="fas fa-user-alt"
                     style={{ fontSize: "26px", marginRight: "45px" }}
                   ></i>

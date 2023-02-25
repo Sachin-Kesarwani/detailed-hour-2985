@@ -31,7 +31,8 @@ import {
   PostdataInWishList,
   DeldatafromWishlist,
 } from "../Redux/CartRedux/action";
-export default function EachCard({ item, handlePostdataIncart }) {
+export default function EachCard({ item, handlePostdataIncart ,category}) {
+ 
   const [liked, setLiked] = useState(false);
   function fun() {
     // console.log("ho");
@@ -124,6 +125,8 @@ export default function EachCard({ item, handlePostdataIncart }) {
           </Flex>
         </HStack>
         <Box h={"200px"} borderBottom={"1px"}>
+          <Link to={`/singlePage/${category}/${item.Position}`}>
+       
           <Img
             cursor={"pointer"}
             src={
@@ -138,6 +141,7 @@ export default function EachCard({ item, handlePostdataIncart }) {
             w={"60%"}
             alt={"Blog Image"}
           />
+             </Link>
         </Box>
       </Box>
 
