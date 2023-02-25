@@ -9,6 +9,16 @@ import {
   Input,
   MenuButton,
   useColorModeValue,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverBody,
+  PopoverTrigger,
+  Popover,
+  Avatar,
+  PopoverHeader,
+  Text,
+  Heading,
+  PopoverContent
 } from "@chakra-ui/react";
 import MegaMenu from "./MegaMenu";
 import { BsCartPlus } from "react-icons/bs";
@@ -16,8 +26,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  let isAuth=localStorage.getItem("isAuth")
   const [searchQuery, setSearchQuery] = useState("");
-
+let accountdata=JSON.parse(localStorage.getItem("accountdata"))
+function handleLogout(){
+  localStorage.setItem(false)
+}
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -119,13 +133,13 @@ export default function Navbar() {
                   SignUp
                 </Button>
 
-            <Button
+            {/* <Button
               colorScheme={"teal"}
               m="5px 15px"
               onClick={() => navigate("/signup")}
             >
               SignUp
-            </Button>
+            </Button> */}
 
             {/* ---------- Login ----------- */}
             <Button
@@ -156,7 +170,11 @@ export default function Navbar() {
               </Menu>
             </Link>
           </Flex>
+            )
+                  }
+            
         </Flex>
+        </Flex>     
       </Box>
       <MegaMenu />
     </>
