@@ -19,7 +19,7 @@ const SearchPage = () => {
 
   const fetchData = (finalQuery, page) => {
     return axios.get(
-      `https://helpful-free-baroness.glitch.me/Search?_limit=10&_page=${page}`,
+      `https://helpful-free-baroness.glitch.me/Search?_limit=12&_page=${page}`,
       {
         params: {
           q: finalQuery,
