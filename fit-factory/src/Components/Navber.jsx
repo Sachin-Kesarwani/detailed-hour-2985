@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -26,12 +26,17 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  let isAuth=localStorage.getItem("isAuth")
+  // let isAuth=localStorage.getItem("isAuth")||false
+  let isAuth=JSON.parse(localStorage.getItem("isAuth"))||false
   const [searchQuery, setSearchQuery] = useState("");
 let accountdata=JSON.parse(localStorage.getItem("accountdata"))
 function handleLogout(){
-  localStorage.setItem(false)
+  localStorage.setItem("isAuth",false)
+  navigate("/")
 }
+
+
+console.log(typeof isAuth)
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -81,9 +86,11 @@ function handleLogout(){
                         color={"teal"}
                         size="md"
                         name={`${accountdata.name}`}
+                       
                       />
                       <Heading color="white" as="h3" size="lg">
                         Hi , {accountdata.name}{" "}
+                     
                       </Heading>{" "}
                     </Flex>{" "}
                   </PopoverHeader>
@@ -149,7 +156,10 @@ function handleLogout(){
             >
               Login
             </Button>
-
+            </Flex>
+)
+           
+          }
             {/* ----------- Cart Icon ------------ */}
             <Link to="/cart">
               <Menu>
@@ -169,9 +179,9 @@ function handleLogout(){
                 </MenuButton>
               </Menu>
             </Link>
-          </Flex>
-            )
-                  }
+        
+            
+                  
             
         </Flex>
         </Flex>     

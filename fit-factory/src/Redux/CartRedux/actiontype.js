@@ -4,3 +4,4 @@ export let AddInCart = "cart/data";
 export let AddInWishList = "add/wishlist";
 export let DelfromWishlist = "del/wishlist";
 export let GetwishlistData="get/wishlist"
+export let GetCart="get/cartdata"

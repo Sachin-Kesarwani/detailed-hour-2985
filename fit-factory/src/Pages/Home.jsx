@@ -15,7 +15,7 @@ import {
   GetWorkoutEssentialFromjJson,
 } from "../Redux/HomePageRedux/action";
 import "./home.css";
-import { Heading } from "@chakra-ui/react";
+import { Heading, useToast } from "@chakra-ui/react";
 import Loadingindicator from "../Components/Loading";
 import { Loading } from "../Redux/HomePageRedux/actiontype";
 import { useEffect } from "react";
@@ -26,6 +26,7 @@ import {
   PostdataInWishList,
   DeldatafromWishlist,
   GetwishListdatafromjson,
+  GetCartData,
 } from "../Redux/CartRedux/action";
 const Home = () => {
   let dispatch = useDispatch();
@@ -52,6 +53,7 @@ const Home = () => {
   let workoutEssentialData = useSelector(
     (store) => store?.HomePageReducer?.workoutEssentialData
   );
+  let cartdata=useSelector((store)=>store?.CartReducer?.cart)
 
   // FitFoodsData:[],
   // FlashSalseData:[],
@@ -60,7 +62,7 @@ const Home = () => {
   // WellnessProductData:[],
   // priceslashAlertData:[],
   // workoutEssentialData:[],
-
+let toast=useToast()
   useEffect(() => {
     dispatch(GetFitFoodsFromjJson);
     dispatch(GetFlashSaleFromjJson);
@@ -70,15 +72,18 @@ const Home = () => {
     dispatch(GetpriceslashAlertFromjJson);
     dispatch(GetwellnessPersonelFromjJson);
     dispatch(GetwishListdatafromjson)
+    dispatch(GetCartData)
+    dispatch(GetwishListdatafromjson)
   }, []);
 
-  let cartdata = useSelector((store) => store.CartReducer?.cart);
+
 
   // console.log(wishlist)
-  function handlePostdataIncart(id, data) {
+  function handlePostdataIncart(data) {
+    console.log(data,"data in home fun")
     let userID = 5;
-    delete data.Position;
-
+  
+console.log(cartdata)
     if (cartdata.length && cartdata.length >= 1) {
       let notThere = true;
       for (let i = 0; i < cartdata.length; i++) {
@@ -89,11 +94,30 @@ const Home = () => {
       }
 
       if (notThere) {
-        dispatch(PostdataIncart(userID, data));
+        let arr=[...cartdata,data]
+        dispatch(PostdataIncart(arr)).then((re)=>{
+          dispatch(GetCartData)
+          toast({
+            title: `Product Added`,
+            position:"top-left",
+            isClosable: true,
+          })
+        
+        });
       }
     }
     if (cartdata.length == 0) {
-      dispatch(PostdataIncart(userID, data));
+      let arr=[data]
+    
+      dispatch(PostdataIncart(arr)).then((re)=>{
+        dispatch(GetCartData)
+        toast({
+          title: `Product Added`,
+          position:"top-left",
+          isClosable: true,
+        })
+     
+      });
     }
   }
   ////////////////////////////////////////////////////

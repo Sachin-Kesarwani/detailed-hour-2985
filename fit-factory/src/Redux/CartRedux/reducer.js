@@ -5,6 +5,7 @@ import {
   Error,
   DelfromWishlist,
   GetwishlistData,
+  GetCart,
 } from "./actiontype";
 
 let inistate = {
@@ -53,6 +54,12 @@ export function reducer(state = inistate, action) {
 case(GetwishlistData):{
   return {
     ...state,wishlist:action.payload
+  }
+}
+
+case(GetCart):{
+  return {
+    ...state,cart:action.payload
   }
 }
     default: {

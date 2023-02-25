@@ -4,37 +4,54 @@ import {
   AddInWishList,
   Loading,
   Error,
+  GetCart,
   DelfromWishlist,
   GetwishlistData
 } from "./actiontype";
 
-export const PostdataIncart = (useID, data) => async (dispatch) => {
+
+let accountdata=JSON.parse(localStorage.getItem("accountdata"))||{id:17}
+// console.log(accountdata.id,"inredux")
+
+export function GetCartData(dispatch){
+  dispatch({ type: Loading });
+  axios.get(`https://helpful-free-baroness.glitch.me/Users/${accountdata.id}`)
+  .then((res)=>{
+    dispatch({type:GetCart,payload:res.data.cart})
+  })
+}
+
+
+export const PostdataIncart = (data) => async (dispatch) => {
+  console.log(data,"reached at redux")
   dispatch({ type: Loading });
 
-  await axios
-  // https://helpful-free-baroness.glitch.me/Users?q=Sachin/cart
-    .post(`http://localhost:8080/cart`, data)
-    // .post(`https://helpful-free-baroness.glitch.me/Users?q=Sachin/cart`, data)
-    .then((res) => {
-      dispatch({ type: AddInCart, payload: res.data });
-    })
-    .catch((er) => {
-      dispatch({ type: Error });
-    });
+  return await axios({
+    url:`https://helpful-free-baroness.glitch.me/Users/${accountdata.id}`,
+    method:"patch",
+    data:{
+      cart:data
+    }
+  })
+    // .then((res) => {
+    //   dispatch({ type: AddInCart, payload: res.data });
+    // })
+    // .catch((er) => {
+    //   dispatch({ type: Error });
+    // });
 };
 
 export const PostdataInWishList = (data) => async (dispatch) => {
   dispatch({ type: Loading });
-
-  await axios
-    .post("http://localhost:8080/wishlist", data)
-    .then((res) => {
-      dispatch({ type: AddInWishList, payload: res.data });
-      dispatch(GetwishListdatafromjson)
-    })
-    .catch((er) => {
-      dispatch({ type: Error });
-    });
+console.log(data,"wish in redux")
+ return  await axios({
+    url:`https://helpful-free-baroness.glitch.me/Users/${accountdata.id}`,
+    method:"patch",
+    data:{
+      wishlist:data
+    }
+  })
+    
 };
 
 export const DeldatafromWishlist = (id) => async (dispatch) => {
@@ -56,9 +73,9 @@ export const DeldatafromWishlist = (id) => async (dispatch) => {
 
 export const GetwishListdatafromjson=(dispatch)=>{
   dispatch({ type: Loading });
-  axios.get("http://localhost:8080/wishlist")
+  axios(`https://helpful-free-baroness.glitch.me/Users/${accountdata.id}`)
   .then((res)=>{
-    dispatch({type: GetwishlistData,payload:res.data})
+    dispatch({type: GetwishlistData,payload:res.data.wishlist})
   }).catch((er)=>{
     dispatch({type:Error})
   })

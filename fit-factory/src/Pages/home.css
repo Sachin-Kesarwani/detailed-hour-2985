@@ -24,3 +24,9 @@
     gap: 10px;
   }
 }
+
+
+#supplement::-webkit-scrollbar {
+    display: none;
+
+}

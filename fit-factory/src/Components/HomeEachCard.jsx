@@ -40,51 +40,50 @@ export default function EachCard({ item, handlePostdataIncart ,category}) {
 
   let [active, setActive] = useState(false);
   let dispatch = useDispatch();
-  let wishlistdata = useSelector((store) => store.CartReducer.wishlist);
-  function AddInWishList(item, id) {
-    console.log(item);
-    console.log(id);
-    // item.id=item.Position
-
-    if (liked) {
-      console.log(id);
-
-      // for(let i=0;i< wishlistdata.length;i++){
-      //   if( wishlistdata[i].image==item.image){
-      //    ID= wishlistdata[i].Position
-      //    break
-      //             }
-      //     }
-      let data = wishlistdata?.filter((e) => e.image == item.image);
-      console.log(data);
-      console.log(wishlistdata, "wishlist");
-      dispatch(DeldatafromWishlist(data[0].id || id));
-    }
+  let wishlistdata = useSelector((store) => store?.CartReducer?.wishlist);
+  function AddInWishList(data) {
+   
+console.log(item)
     if (!liked) {
-      if (wishlistdata.length == 0) {
-        dispatch(PostdataInWishList(item));
-      } else {
-        let notthere = true;
-        for (let i = 0; i < wishlistdata.length; i++) {
-          if (wishlistdata[i].image == item.image) {
-            notthere = false;
+      if (wishlistdata.length && wishlistdata.length >= 1) {
+        let notThere = true;
+        for (let i = 0; i <wishlistdata.length; i++) {
+          if (wishlistdata[i].image == data.image) {
+            notThere = false;
             break;
           }
         }
-        if (notthere) {
-          dispatch(PostdataInWishList(item));
+  
+        if (notThere) {
+          console.log("iside not there")
+          let arr=[...wishlistdata,data]
+          dispatch(PostdataInWishList(arr)).then((re)=>{
+            dispatch(GetwishListdatafromjson)
+          });
         }
       }
+      if (wishlistdata.length == 0) {
+        let arr=[data]
+      console.log("inside if")
+        dispatch(PostdataInWishList(arr)).then((re)=>{
+          dispatch(GetwishListdatafromjson)
+        });
+      }
+    }
+    if (liked) {
+      let arr=wishlistdata.filter((e)=>e.Position!==data.Position)
+      dispatch(PostdataInWishList(arr)).then((re)=>{
+        dispatch(GetwishListdatafromjson)
+      });
     }
   }
-  //   useEffect(()=>{
-  //  dispatch(GetwishListdatafromjson)
-  //   },[])
+   
   return (
     <Box
       id="eachcardBox"
       key={item.Position}
-      w={"22vw"}
+      // w={"22vw"}
+      w={"280px"}
       rounded={"sm"}
       overflow={"hidden"}
       // bg="white"
@@ -114,7 +113,7 @@ export default function EachCard({ item, handlePostdataIncart ,category}) {
             cursor="pointer"
             onClick={() => {
               setLiked((prev) => !liked);
-              AddInWishList(item, item.Position);
+              AddInWishList(item);
             }}
           >
             {liked ? (
@@ -188,7 +187,7 @@ export default function EachCard({ item, handlePostdataIncart ,category}) {
           <Spacer />
           <Text fontSize="sm" color={"green.600"}>
             {(((item.oldprice - item.newprice) * 100) / item.oldprice).toFixed(
-              2
+           
             ) || "40"}
             % OFF
           </Text>
@@ -232,7 +231,7 @@ export default function EachCard({ item, handlePostdataIncart ,category}) {
         ) : (
           <Box
             onClick={() => {
-              handlePostdataIncart(item.Position, item);
+              handlePostdataIncart(item);
               setActive(!active);
             }}
             cursor={"pointer"}

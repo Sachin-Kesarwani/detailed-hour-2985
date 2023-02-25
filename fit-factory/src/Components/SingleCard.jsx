@@ -18,10 +18,43 @@ import {
   } from '@chakra-ui/react';
   import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
   import { MdLocalShipping } from 'react-icons/md';
-  
+import { useDispatch, useSelector } from 'react-redux';
+import SlideShow from '../Slideshow/SlideShow';
+  import { GetCartData,PostdataIncart } from '../Redux/CartRedux/action';
   export default function SingleCard({item}) {
+let dispatch=useDispatch()
+let cartdata=useSelector((store)=>store?.CartReducer?.cart)
+
+    function handlePostdataIncart(data) {
+      
+      if (cartdata.length && cartdata.length >= 1) {
+        let notThere = true;
+        for (let i = 0; i < cartdata.length; i++) {
+          if (cartdata[i].image == data.image) {
+            notThere = false;
+            break;
+          }
+        }
+  
+        if (notThere) {
+          let arr=[...cartdata,data]
+          dispatch(PostdataIncart(arr)).then((re)=>{
+            dispatch(GetCartData)
+          });
+        }
+      }
+      if (cartdata.length == 0) {
+        let arr=[data]
+      
+        dispatch(PostdataIncart(arr)).then((re)=>{
+          dispatch(GetCartData)
+        });
+      }
+    }
     return (
-      <Container maxW={'7xl'}>
+
+      <>
+       <Container maxW={'7xl'}>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}
@@ -43,23 +76,34 @@ import {
             <Box as={'header'}>
               <Heading
                 lineHeight={1.1}
-                fontWeight={600}
+                fontWeight={400}
                 fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
                {item.title.substring(0, 18)}...
               </Heading>
               <Text
                 color={useColorModeValue('gray.900', 'gray.400')}
                 fontWeight={300}
-                fontSize={'2xl'}>
-              Price  ₹ {item.newprice}
+                fontSize={'xl'}>
+             MRP <del>  ₹ {item.oldprice}</del>
               </Text>
               <Text
                 color={useColorModeValue('gray.900', 'gray.400')}
-                fontWeight={300}
+                // fontWeight={300}
+                 fontWeight={"bold"}
                 fontSize={'2xl'}>
-              Discount <del>  ₹ {item.oldprice}</del>
+              Price  ₹ {item.newprice}<span>   <Text
+                color={useColorModeValue('teal.400', 'gray.400')}
+                // fontWeight={300}
+                  fontWeight={"bold"}
+                fontSize={'md'}>
+         {(((item.oldprice - item.newprice) * 100) / item.oldprice).toFixed(
+              
+            ) || "40"}
+            % OFF
+              </Text></span>
               </Text>
-              <Text
+              
+              {/* <Text
                 color={useColorModeValue('gray.900', 'gray.400')}
                 fontWeight={300}
                 fontSize={'2xl'}>
@@ -67,7 +111,7 @@ import {
               
             ) || "40"}
             % OFF
-              </Text>
+              </Text> */}
             </Box>
   
             <Stack
@@ -83,14 +127,10 @@ import {
                   color={useColorModeValue('gray.500', 'gray.400')}
                   fontSize={'2xl'}
                   fontWeight={'300'}>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
+                 MuscleBlaze Super Gainer XXL is enriched with 27 vital vitamins and minerals that help in boosting the immunity and regulating enzymes in your body
                 </Text>
                 <Text fontSize={'lg'}>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                  aliquid amet at delectus doloribus dolorum expedita hic, ipsum
-                  maxime modi nam officiis porro, quae, quisquam quos
-                  reprehenderit velit? Natus, totam.
+                Available in scrumptious chocolate flavor, MuscleBlaze Super Gainer XXL is free from any added sugars and trans fats
                 </Text>
               </VStack>
               <Box>
@@ -100,19 +140,19 @@ import {
                   fontWeight={'500'}
                   textTransform={'uppercase'}
                   mb={'4'}>
-                  Features
+                 About Product
                 </Text>
   
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                   <List spacing={2}>
-                    <ListItem>Chronograph</ListItem>
-                    <ListItem>Master Chronometer Certified</ListItem>{' '}
-                    <ListItem>Tachymeter</ListItem>
+                    <ListItem>Best Quality</ListItem>
+                    <ListItem>Easy to take</ListItem>{' '}
+                    <ListItem>No SideEffect</ListItem>
                   </List>
                   <List spacing={2}>
-                    <ListItem>Anti‑magnetic</ListItem>
-                    <ListItem>Chronometer</ListItem>
-                    <ListItem>Small seconds</ListItem>
+                    <ListItem>Anti‑oxident</ListItem>
+                    <ListItem>Good for health</ListItem>
+                    <ListItem>100% Original </ListItem>
                   </List>
                 </SimpleGrid>
               </Box>
@@ -129,46 +169,45 @@ import {
                 <List spacing={2}>
                   <ListItem>
                     <Text as={'span'} fontWeight={'bold'}>
-                      Between lugs:
+                     Weight:
                     </Text>{' '}
-                    20 mm
+                   500 ml
                   </ListItem>
                   <ListItem>
                     <Text as={'span'} fontWeight={'bold'}>
-                      Bracelet:
+                      Manufactured Year :
                     </Text>{' '}
-                    leather strap
+                  09/2022
                   </ListItem>
                   <ListItem>
                     <Text as={'span'} fontWeight={'bold'}>
-                      Case:
+                     Expiry:
                     </Text>{' '}
-                    Steel
+                   09/2025
                   </ListItem>
                   <ListItem>
                     <Text as={'span'} fontWeight={'bold'}>
-                      Case diameter:
+                      Made in :
                     </Text>{' '}
-                    42 mm
+                   India
                   </ListItem>
                   <ListItem>
                     <Text as={'span'} fontWeight={'bold'}>
-                      Dial color:
+                     Flavour:
                     </Text>{' '}
-                    Black
+                  Vainlla
                   </ListItem>
                   <ListItem>
                     <Text as={'span'} fontWeight={'bold'}>
-                      Crystal:
+                     Manufacture By:
                     </Text>{' '}
-                    Domed, scratch‑resistant sapphire crystal with anti‑reflective
-                    treatment inside
+                    Sapiens Labs, Village Dhana Bagbania, P.O. Manpura,Tehsil Nalagarh , Solan
                   </ListItem>
                   <ListItem>
                     <Text as={'span'} fontWeight={'bold'}>
-                      Water resistance:
+                     Contact us For Info :
                     </Text>{' '}
-                    5 bar (50 metres / 167 feet){' '}
+                  sachin.kesarwani6903@gmail.com
                   </ListItem>
                 </List>
               </Box>
@@ -180,7 +219,8 @@ import {
               mt={8}
               size={'lg'}
               py={'7'}
-              bg={useColorModeValue('gray.900', 'gray.50')}
+              onClick={()=>handlePostdataIncart(item)}
+              bg={useColorModeValue('orange.500', 'orange.50')}
               color={useColorModeValue('white', 'gray.900')}
               textTransform={'uppercase'}
               _hover={{
@@ -194,8 +234,36 @@ import {
               <MdLocalShipping />
               <Text>2-3 business days delivery</Text>
             </Stack>
+            <Box>
+              <Flex borderRadius={"8px"} border={"1px solid gray"}>
+                <Box py={10} >
+                <img  width={"120%"} src='https://s3-ap-southeast-1.amazonaws.com/hkprod/payment_img/wallet/airtel-payment-bank.png' />
+                </Box>
+             
+              <Text>
+              Flat Rs.200 Cashback On Min. Order Of Rs.2000 For First Time Users Of Airtel Payments Bank On HealthKart. Offer Valid Till 28th February 2023  
+              </Text>
+              </Flex>
+           
+            </Box>
+            <Box>
+              <Flex borderRadius={"8px"} border={"1px solid gray"}>
+                <Box py={10} >
+                <img  width={"200px"} src='https://s3-ap-southeast-1.amazonaws.com/hkprod/1179/mobikwiknew.png' />
+                </Box>
+             
+              <Text>
+              Get upto Rs.600 MobiKwik Cashback between max. Rs. 600 and min. Rs. 50 on payment made via Mobikwik wallet. Valid On Min. Order Of Rs.1200  
+              </Text>
+              </Flex>
+           
+            </Box>
           </Stack>
+        
         </SimpleGrid>
       </Container>
+     
+      </>
+     
     );
   }
