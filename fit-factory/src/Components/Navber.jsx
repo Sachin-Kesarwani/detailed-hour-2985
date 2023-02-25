@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Flex,
@@ -9,37 +9,15 @@ import {
   Input,
   MenuButton,
   useColorModeValue,
-  Spacer,
-  PopoverTrigger,
-  Popover,
-  PopoverContent,
-  PopoverHeader,
-  PopoverArrow,
-  PopoverCloseButton,
-  PopoverBody,
-  Avatar,
-  Heading,
-  Text,
 } from "@chakra-ui/react";
 import MegaMenu from "./MegaMenu";
 import { BsCartPlus } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { authContext } from "../Context/Authcontext";
+import { Link, useNavigate } from "react-router-dom";
+
 export default function Navbar() {
   const navigate = useNavigate();
-  //let {isAuth}=useContext(authContext)
-  let isAuth = JSON.parse(localStorage.getItem("isAuth")) || false;
-  let accountdata = JSON.parse(localStorage.getItem("accountdata")) || {
-    name: "Sachin Kesarwani",
-  };
+  const [searchQuery, setSearchQuery] = useState("");
 
-  console.log("isAuth", isAuth);
-
-  function handleLogout() {
-    localStorage.setItem("isAuth", false);
-    navigate("/");
-  }
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -53,17 +31,24 @@ export default function Navbar() {
             <HStack>
               <Input
                 placeholder="Search for products & brands"
+                value={searchQuery}
                 w="500px"
                 display={{ base: "none", md: "flex" }}
                 border="2px solid teal"
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <Button colorScheme={"teal"}>Search</Button>
+              <Link to={`/searchpage/${searchQuery}`}>
+                {" "}
+                <Button colorScheme={"teal"} onClick={() => setSearchQuery("")}>
+                  Search
+                </Button>
+              </Link>
             </HStack>
           </HStack>
 
           <Flex alignItems={"center"}>
-            {/* <i class='fas fa-user-alt' style={{fontSize:'26px',marginRight:"45px"}}></i> */}
             {/* -------------- SignUp ------------- */}
+
             {isAuth ? (
               <Popover placement="top-start">
                 <PopoverTrigger>
@@ -134,34 +119,42 @@ export default function Navbar() {
                   SignUp
                 </Button>
 
-                <Button
-                  colorScheme={"teal"}
-                  m="5px 15px"
-                  onClick={() => navigate("/login")}
-                >
-                  Login
-                </Button>
-              </Flex>
-            )}
+            <Button
+              colorScheme={"teal"}
+              m="5px 15px"
+              onClick={() => navigate("/signup")}
+            >
+              SignUp
+            </Button>
+
+            {/* ---------- Login ----------- */}
+            <Button
+              colorScheme={"teal"}
+              m="5px 15px"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </Button>
 
             {/* ----------- Cart Icon ------------ */}
-
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={"full"}
-                variant={"link"}
-                cursor={"pointer"}
-              >
-                <BsCartPlus
-                  style={{
-                    height: "30px",
-                    width: "30px",
-                    marginLeft: "5px 25px",
-                  }}
-                />
-              </MenuButton>
-            </Menu>
+            <Link to="/cart">
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  rounded={"full"}
+                  variant={"link"}
+                  cursor={"pointer"}
+                >
+                  <BsCartPlus
+                    style={{
+                      height: "30px",
+                      width: "30px",
+                      marginLeft: "5px 25px",
+                    }}
+                  />
+                </MenuButton>
+              </Menu>
+            </Link>
           </Flex>
         </Flex>
       </Box>
