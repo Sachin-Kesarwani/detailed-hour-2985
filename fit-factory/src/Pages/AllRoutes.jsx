@@ -1,22 +1,21 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Account from "../Account/Account";
-import Admin from "../Admin/admin";
-import Login from "../Components/Login";
-import SignUp from "../Components/SignUp";
 import Cart from "./Cart";
 import Home from "./Home";
+import Admin from "../Admin/admin";
+import Login from "../Components/Login";
 import SearchPage from "./SearchPage";
 import SinglePage from "./SinglePage";
-import ProductDetails from "./ProductDetails";
+import SignUp from "../Components/SignUp";
+import Account from "../Account/Account";
 import Proteins from "./Proteins/Proteins";
 import Gainers from "./Gainers/Gainers";
 import Fitness from "./Fitness/Fitness";
 import Wellness from "./Wellness/Wellness";
+import MultiVitamins from "./MultiVitamins/MultiVitamins";
 import ProteinsFoods from "./ProteinsFood/ProteinsFoods";
 import PrePostWorkout from "./PrePostWorkout/PrePostWorkout";
 import WorkoutEssentials from "./WorkoutEssestials/WorkoutEssentials";
-import MultiVitamins from "./MultiVitamins/MultiVitamins";
 
 const AllRoutes = () => {
   return (
@@ -37,7 +36,6 @@ const AllRoutes = () => {
         <Route path="/multivitamins" element={<MultiVitamins />} />
         <Route path="/searchpage/:query" element={<SearchPage />} />
         <Route path="/singlePage/:title/:id" element={<SinglePage />} />
-        <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/workoutessentials" element={<WorkoutEssentials />} />
       </Routes>
     </div>

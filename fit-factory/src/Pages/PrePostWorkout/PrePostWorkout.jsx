@@ -72,7 +72,7 @@ const PrePostWorkout = () => {
                     </Box>
                   </Box>
 
-                  <Link to={`/productdetails/${el.id}`}>
+                  <Link to={`/singlePage/${"Pre-Post-Workout"}/${el.id}`}>
                     <Button
                       w="100%"
                       margin="auto"

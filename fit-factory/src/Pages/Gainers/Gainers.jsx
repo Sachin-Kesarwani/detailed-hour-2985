@@ -72,7 +72,7 @@ const Gainers = () => {
                     </Box>
                   </Box>
 
-                  <Link to={`/productdetails/${el.id}`}>
+                  <Link to={`/singlePage/${"Gainers"}/${el.id}`}>
                     <Button
                       w="100%"
                       margin="auto"
