@@ -29,7 +29,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   let dispatch=useDispatch()
   // let isAuth=localStorage.getItem("isAuth")||false
-  let isAuth=JSON.parse(localStorage.getItem("isAuth"))||false
+  let isAuth = JSON.parse(localStorage.getItem("isAuth")) || false;
   const [searchQuery, setSearchQuery] = useState("");
 let accountdata=JSON.parse(localStorage.getItem("accountdata"))
 function handleLogout(){
@@ -38,8 +38,7 @@ function handleLogout(){
 
 }
 
-
-console.log(typeof isAuth)
+  console.log(typeof isAuth);
   return (
     <>
       {/* Box pos="fixed" zIndex={2} w="100%" */}
@@ -68,7 +67,7 @@ console.log(typeof isAuth)
               </Link>
             </HStack>
           </HStack>
-</Flex>
+
           <Flex alignItems={"center"}>
             {/* -------------- SignUp ------------- */}
 
@@ -89,11 +88,9 @@ console.log(typeof isAuth)
                         color={"teal"}
                         size="md"
                         name={`${accountdata.name}`}
-                       
                       />
                       <Heading color="white" as="h3" size="lg">
                         Hi , {accountdata.name}{" "}
-                     
                       </Heading>{" "}
                     </Flex>{" "}
                   </PopoverHeader>
@@ -143,26 +140,16 @@ console.log(typeof isAuth)
                   SignUp
                 </Button>
 
-            {/* <Button
-              colorScheme={"teal"}
-              m="5px 15px"
-              onClick={() => navigate("/signup")}
-            >
-              SignUp
-            </Button> */}
-
-            {/* ---------- Login ----------- */}
-            <Button
-              colorScheme={"teal"}
-              m="5px 15px"
-              onClick={() => navigate("/login")}
-            >
-              Login
-            </Button>
-            </Flex>
-)
-           
-          }
+                {/* ---------- Login ----------- */}
+                <Button
+                  colorScheme={"teal"}
+                  m="5px 15px"
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </Button>
+              </Flex>
+            )}
             {/* ----------- Cart Icon ------------ */}
             <Link to="/cart">
               <Menu>
@@ -182,13 +169,10 @@ console.log(typeof isAuth)
                 </MenuButton>
               </Menu>
             </Link>
-        
-            
-                  
-            
+          </Flex>
         </Flex>
       </Box>
-    
+
       <MegaMenu />
     </>
   );

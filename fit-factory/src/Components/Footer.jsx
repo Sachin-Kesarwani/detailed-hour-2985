@@ -12,9 +12,6 @@ import {
 } from "@chakra-ui/react";
 import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 
-// import AppStoreBadge from '@/components/AppStoreBadge';
-// import PlayStoreBadge from '@/components/PlayStoreBadge';
-
 const ListHeader = ({ children }) => {
   return (
     <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
@@ -52,7 +49,6 @@ export default function Footer() {
   return (
     <Box
       bg={useColorModeValue("blackAlpha.900", "blackAlpha.900")}
-      // color={useColorModeValue("white.700", "white.800")}
       color={"white"}
     >
       <Container as={Stack} maxW={"6xl"} py={10}>
@@ -82,8 +78,6 @@ export default function Footer() {
 
           <Stack align={"flex-start"}>
             <ListHeader>Install App</ListHeader>
-            {/* <AppStoreBadge />
-            <PlayStoreBadge /> */}
           </Stack>
         </SimpleGrid>
       </Container>
@@ -102,7 +96,7 @@ export default function Footer() {
           justify={{ md: "space-between" }}
           align={{ md: "center" }}
         >
-          <Text>© 2022 Chakra Templates. All rights reserved</Text>
+          <Text>© 2022 Fit-Factory. All rights reserved</Text>
           <Stack direction={"row"} spacing={6}>
             <SocialButton label={"Twitter"} href={"#"}>
               <FaTwitter />
