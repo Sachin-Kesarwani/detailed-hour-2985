@@ -46,6 +46,7 @@ export default function Carousel() {
           backgroundColor: " #cceeff",
           paddingTop: "10px",
           paddingBottom: "10px",
+          marginTop:"6vw"
         }}
       >
         <Text textAlign={"center"}>India's Largest D2C Nutrition Platform</Text>
