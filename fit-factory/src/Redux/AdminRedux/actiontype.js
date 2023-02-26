@@ -6,4 +6,6 @@ export let GetAdmins="getAdmins";
 export let AddProduct = "addProduct";
 export let DelelteProduct = "deleteProduct";
 export let EditProduct="editProduct";
-export let TotalProducts="Total";
+export let TotalProductsadd="totalProducts";
+export let TotalProductsless="totalProducts";
+export let TotalUsers="totalUsers";
