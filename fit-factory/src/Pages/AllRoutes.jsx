@@ -22,6 +22,9 @@ import Payment from "../Payment/PaymentPage";
 const AllRoutes = () => {
   return (
     <div>
+      <div style={{width:"100%",marginTop:"7vw"}} >
+
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/account" element={
