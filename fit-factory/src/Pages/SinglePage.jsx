@@ -47,7 +47,7 @@ const SinglePage = () => {
   return loading ? (
     <Heading>Loading ...</Heading>
   ) : (
-    <div>
+    <div style={{ alignContent: "center", paddingTop: "120px" }}>
       {data?.map((e) => {
         return <SingleCard item={e} />;
       })}
@@ -65,7 +65,10 @@ const SinglePage = () => {
       </Heading>
       <hr style={{ border: "3px solid #c2c2d6", marginTop: "10px" }}></hr>
       <div id="supplement" style={{ height: "60vh", overflow: "scroll" }}>
-        <img src="https://hkprod.s3.amazonaws.com/21232/bnr_2123154_o.jpg" />
+        <img
+          alt=""
+          src="https://hkprod.s3.amazonaws.com/21232/bnr_2123154_o.jpg"
+        />
       </div>
       <Heading>Similar Product</Heading>
       <hr

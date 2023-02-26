@@ -52,7 +52,7 @@ export default function SingleCard({ item }) {
   }
   console.log(item);
   return (
-    <>
+    <div style={{ alignContent: "center", paddingTop: "120px" }}>
       <Container maxW={"7xl"}>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
@@ -299,6 +299,6 @@ export default function SingleCard({ item }) {
           </Stack>
         </SimpleGrid>
       </Container>
-    </>
+    </div>
   );
 }

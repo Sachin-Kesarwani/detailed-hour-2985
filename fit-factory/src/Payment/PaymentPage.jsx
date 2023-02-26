@@ -142,7 +142,7 @@ export default function Payment() {
 
   //   console.log(cartItem)
   return (
-    <>
+    <div style={{ alignContent: "center", paddingTop: "125px" }}>
       <Heading textAlign={"center"}>Payment</Heading>
       <Box w={`${width}%`} margin="auto">
         <FormLabel>
@@ -260,6 +260,6 @@ export default function Payment() {
           </AlertDialogContent>
         </AlertDialogOverlay>
       </AlertDialog>
-    </>
+    </div>
   );
 }
