@@ -27,22 +27,30 @@ import { useDispatch } from "react-redux";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  let dispatch=useDispatch()
+  let dispatch = useDispatch();
   // let isAuth=localStorage.getItem("isAuth")||false
   let isAuth = JSON.parse(localStorage.getItem("isAuth")) || false;
   const [searchQuery, setSearchQuery] = useState("");
-let accountdata=JSON.parse(localStorage.getItem("accountdata"))
-function handleLogout(){
-  localStorage.setItem("isAuth",false)
-  navigate("/")
-
-}
+  let accountdata = JSON.parse(localStorage.getItem("accountdata"));
+  function handleLogout() {
+    localStorage.setItem("isAuth", false);
+    navigate("/");
+  }
 
   console.log(typeof isAuth);
   return (
-    <>
+    <div
+      style={{
+        // position: "-webkit-sticky",
+        // position: "sticky",
+        position: "fixed",
+        zIndex: "10",
+        width: "100%",
+        height: "auto",
+      }}
+    >
       {/* Box pos="fixed" zIndex={2} w="100%" */}
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}  >
+      <Box bg={useColorModeValue("gray.100", "gray.900")}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <HStack spacing={8} alignItems={"center"}>
             <Link to="/">
@@ -112,7 +120,7 @@ function handleLogout(){
                       >
                         &#xf004;
                       </i>{" "}
-                   Go To Your Profile
+                      Go To Your Profile
                     </Text>
                     <Text
                       textAlign={"center"}
@@ -174,6 +182,6 @@ function handleLogout(){
       </Box>
 
       <MegaMenu />
-    </>
+    </div>
   );
 }

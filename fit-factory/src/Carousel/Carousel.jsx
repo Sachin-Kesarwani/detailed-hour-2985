@@ -46,7 +46,6 @@ export default function Carousel() {
           backgroundColor: " #cceeff",
           paddingTop: "10px",
           paddingBottom: "10px",
-       
         }}
       >
         <Text textAlign={"center"}>India's Largest D2C Nutrition Platform</Text>
@@ -54,6 +53,7 @@ export default function Carousel() {
       <Box
         id="carousel_1"
         position={"relative"}
+        // position={"sticky"}
         width={"full"}
         overflow={"hidden"}
       >
@@ -114,7 +114,8 @@ export default function Carousel() {
               // height={"300px"}
               // height={"sm"}
               height={"28vw"}
-              position="relative"
+              // position="relative"
+              position={"sticky"}
               backgroundPosition="center"
               backgroundRepeat="no-repeat"
               backgroundSize="cover"

@@ -44,7 +44,7 @@ const Proteins = () => {
   };
 
   return (
-    <>
+    <div style={{ alignContent: "center", paddingTop: "100px" }}>
       {/* ------- Sort By Price ------- */}
       <Select
         m="7px"
@@ -164,7 +164,7 @@ const Proteins = () => {
           Next
         </Button>
       </Box>
-    </>
+    </div>
   );
 };
 

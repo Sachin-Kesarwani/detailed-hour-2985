@@ -21,25 +21,26 @@ import Payment from "../Payment/PaymentPage";
 
 const AllRoutes = () => {
   return (
-    <div>
-      <div style={{width:"100%",marginTop:"7vw"}} >
-
-      </div>
+    <div style={{ margin: "0px", padding: "0px", boxSizing: "border-box" }}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/account" element={
-        <FrontedPrivate>
- <Account />
-        </FrontedPrivate>
-       
-        
-        } />
+        <Route
+          path="/account"
+          element={
+            <FrontedPrivate>
+              <Account />
+            </FrontedPrivate>
+          }
+        />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/cart" element={
-        <FrontedPrivate>
- <Cart />
-        </FrontedPrivate>
-       } />
+        <Route
+          path="/cart"
+          element={
+            <FrontedPrivate>
+              <Cart />
+            </FrontedPrivate>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/proteins" element={<Proteins />} />
@@ -50,14 +51,16 @@ const AllRoutes = () => {
         <Route path="/prepostworkout" element={<PrePostWorkout />} />
         <Route path="/multivitamins" element={<MultiVitamins />} />
         <Route path="/searchpage/:query" element={<SearchPage />} />
-        <Route path="/singlePage/:title/:id" element={
-          <FrontedPrivate>
-  <SinglePage />
-          </FrontedPrivate>
-      
-        } />
+        <Route
+          path="/singlePage/:title/:id"
+          element={
+            <FrontedPrivate>
+              <SinglePage />
+            </FrontedPrivate>
+          }
+        />
         <Route path="/workoutessentials" element={<WorkoutEssentials />} />
-        <Route path="/payment" element={<Payment/>} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </div>
   );

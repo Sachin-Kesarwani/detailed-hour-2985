@@ -44,7 +44,7 @@ const Fitness = () => {
   };
 
   return (
-    <>
+    <div style={{ alignContent: "center", paddingTop: "100px" }}>
       {/* ------- Sort By Price ------- */}
       <Select
         m="7px"
@@ -164,7 +164,7 @@ const Fitness = () => {
           Next
         </Button>
       </Box>
-    </>
+    </div>
   );
 };
 

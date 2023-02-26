@@ -44,7 +44,7 @@ const WorkoutEssentials = () => {
   };
 
   return (
-    <>
+    <div style={{ alignContent: "center", paddingTop: "100px" }}>
       {/* ------- Sort By Price ------- */}
       <Select
         m="7px"
@@ -165,7 +165,7 @@ const WorkoutEssentials = () => {
           Next
         </Button>
       </Box>
-    </>
+    </div>
   );
 };
 

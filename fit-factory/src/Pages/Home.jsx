@@ -53,7 +53,7 @@ const Home = () => {
   let workoutEssentialData = useSelector(
     (store) => store?.HomePageReducer?.workoutEssentialData
   );
-  let cartdata=useSelector((store)=>store?.CartReducer?.cart)
+  let cartdata = useSelector((store) => store?.CartReducer?.cart);
 
   // FitFoodsData:[],
   // FlashSalseData:[],
@@ -62,7 +62,7 @@ const Home = () => {
   // WellnessProductData:[],
   // priceslashAlertData:[],
   // workoutEssentialData:[],
-let toast=useToast()
+  let toast = useToast();
   useEffect(() => {
     dispatch(GetFitFoodsFromjJson);
     dispatch(GetFlashSaleFromjJson);
@@ -71,19 +71,17 @@ let toast=useToast()
     dispatch(GetWorkoutEssentialFromjJson);
     dispatch(GetpriceslashAlertFromjJson);
     dispatch(GetwellnessPersonelFromjJson);
-    dispatch(GetwishListdatafromjson)
-    dispatch(GetCartData)
-    dispatch(GetwishListdatafromjson)
+    dispatch(GetwishListdatafromjson);
+    dispatch(GetCartData);
+    dispatch(GetwishListdatafromjson);
   }, []);
-
-
 
   // console.log(wishlist)
   function handlePostdataIncart(data) {
-    console.log(data,"data in home fun")
+    console.log(data, "data in home fun");
     let userID = 5;
-  
-console.log(cartdata)
+
+    console.log(cartdata);
     if (cartdata.length && cartdata.length >= 1) {
       let notThere = true;
       for (let i = 0; i < cartdata.length; i++) {
@@ -94,29 +92,27 @@ console.log(cartdata)
       }
 
       if (notThere) {
-        let arr=[...cartdata,data]
-        dispatch(PostdataIncart(arr)).then((re)=>{
-          dispatch(GetCartData)
+        let arr = [...cartdata, data];
+        dispatch(PostdataIncart(arr)).then((re) => {
+          dispatch(GetCartData);
           toast({
             title: `Product Added`,
-            position:"top-left",
+            position: "top-left",
             isClosable: true,
-          })
-        
+          });
         });
       }
     }
     if (cartdata.length == 0) {
-      let arr=[data]
-    
-      dispatch(PostdataIncart(arr)).then((re)=>{
-        dispatch(GetCartData)
+      let arr = [data];
+
+      dispatch(PostdataIncart(arr)).then((re) => {
+        dispatch(GetCartData);
         toast({
           title: `Product Added`,
-          position:"top-left",
+          position: "top-left",
           isClosable: true,
-        })
-     
+        });
       });
     }
   }

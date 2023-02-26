@@ -44,7 +44,7 @@ const MultiVitamins = () => {
   };
 
   return (
-    <>
+    <div style={{ alignContent: "center", paddingTop: "100px" }}>
       {/* ------- Sort By Price ------- */}
       <Select
         m="7px"
@@ -164,7 +164,7 @@ const MultiVitamins = () => {
           Next
         </Button>
       </Box>
-    </>
+    </div>
   );
 };
 
