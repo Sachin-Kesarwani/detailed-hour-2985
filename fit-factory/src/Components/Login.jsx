@@ -16,7 +16,7 @@ const Login = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState();
+  const [loginPassword, setLoginPassword] = useState("");
 
   const LoginCheck = async () => {
     let res = await axios.get(`https://helpful-free-baroness.glitch.me/Users`);
