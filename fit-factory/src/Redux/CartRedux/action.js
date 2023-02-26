@@ -11,7 +11,7 @@ import {
 } from "./actiontype";
 
 
-let accountdata=JSON.parse(localStorage.getItem("accountdata"))
+let accountdata=JSON.parse(localStorage.getItem("accountdata"))||{id:17}
 // console.log(accountdata.id,"inredux")
 
 export function GetCartData(dispatch){
