@@ -24,7 +24,7 @@ const Admins = () => {
 
   return (
     <div style={{width:"80%" ,margin:"50px 0px 0px 290px",textAlign:"center"}}>
-      <Text fontSize={"4xl"} fontFamily={"sans-serif"}>Admin's</Text>
+      <Text fontSize={"4xl"} fontFamily={"sans-serif"} fontWeight={'bold'}>Admin's</Text>
       <TableContainer >
         <Table variant="striped" colorScheme="teal">
           <Thead>

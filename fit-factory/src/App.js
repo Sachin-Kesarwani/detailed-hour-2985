@@ -1,16 +1,16 @@
 import Navbar from "./Components/Navber";
 import Footer from "./Components/Footer";
 import AllRoutes from "./Pages/AllRoutes";
-import { useParams } from "react-router-dom";
+
 
 function App() {
-  let { param } = useParams();
-  console.log("param" + param);
+  let  url  = document.URL
+  let param =url.includes("admin")
   return (
     <div className="App">
-      <Navbar />
+      {!param && <Navbar /> }
       <AllRoutes />
-      <Footer />
+      {!param && <Footer /> }
     </div>
   );
 }

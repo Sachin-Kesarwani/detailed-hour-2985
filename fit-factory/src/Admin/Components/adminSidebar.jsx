@@ -30,7 +30,7 @@ const LinkItems = [
   { name: 'Products',preview:"allproducts"},
   { name: 'Users',preview:"users"},
   { name: 'Admins',preview:"admins"},
-
+  { name: 'Add Product',preview:"addProduct"},
 ];
 
 export default function SidebarWithHeader({
@@ -156,7 +156,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
       </Text>
 
       <HStack spacing={{ base: '0', md: '6' }}>
-      <Image src="Fit Factory Logo.png" w="440px" h="282px" objectFit={"scale-down"} >
+      <Image src="Fit-Factory-Logo.png" w="440px" h="282px" objectFit={"scale-down"} >
 
             </Image>
         <Flex alignItems={'center'}>

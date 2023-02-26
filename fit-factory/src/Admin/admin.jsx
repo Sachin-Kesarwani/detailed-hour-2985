@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import AddProduct from "./Components/addProduct";
 
 import SidebarWithHeader from "./Components/adminSidebar";
 import Products from "./Components/products";
@@ -28,20 +28,22 @@ const Admin = () => {
       case "users":
         defaultComponent = <Users />;
         break;
-        default :
+        case "addProduct":
+          defaultComponent = <AddProduct />;
+          break;
+      default:
         defaultComponent = <Stats />;
     }
     return defaultComponent;
   };
 
-
   return (
     <>
       {/* <AdminNav /> */}
-      <SidebarWithHeader changePreview={changePreview}/>
-       
-        {/* <Stats /> */}
-        {previewComponent()}
+      <SidebarWithHeader changePreview={changePreview} />
+
+      {/* <Stats /> */}
+      {previewComponent()}
     </>
   );
 };
