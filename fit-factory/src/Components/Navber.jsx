@@ -86,7 +86,7 @@ export default function Navbar() {
                     style={{
                       height: "30px",
                       width: "30px",
-                      marginLeft: "5px 25px",
+                        marginRight: " 45px",
                     }}
                   />
                 </PopoverTrigger>
