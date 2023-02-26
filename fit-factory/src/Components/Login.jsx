@@ -39,14 +39,14 @@ const Login = () => {
           description: "Your data is not matched to our record",
           status: "failure",
           duration: 5000,
-          isClosable: true,
+          isClosable: false,
         });
       }
     });
   };
 
   return (
-    <FormControl bg={"#f2e3c6"} p="20px">
+    <FormControl bg="#f2e3c6" p="20px">
       <Flex>
         <Image
           src="https://static1.hkrtcdn.com/hknext/static/media/login/slider/1.svg"
@@ -80,11 +80,13 @@ const Login = () => {
             onChange={(e) => setLoginPassword(e.target.value)}
           />
 
-          <Button bg="teal.400" color="white" m="5px" onClick={LoginCheck}>
+          <Button bg={"teal.400"} color={"white"} m="5px" onClick={LoginCheck}>
             Login
           </Button>
 
-          <Text textAlign="center">*Welcome back again to our service.</Text>
+          <Text textAlign="center">
+            ** Welcome back again to our service. **
+          </Text>
         </Box>
       </Flex>
     </FormControl>
