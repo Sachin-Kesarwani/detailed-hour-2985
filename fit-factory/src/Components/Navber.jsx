@@ -21,7 +21,7 @@ import {
   PopoverContent,
 } from "@chakra-ui/react";
 import MegaMenu from "./MegaMenu";
-import { BsCartPlus } from "react-icons/bs";
+import { BsCartPlus,BsPersonCircle } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -74,11 +74,13 @@ function handleLogout(){
             {isAuth ? (
               <Popover placement="top-start">
                 <PopoverTrigger>
-                  <i
-                    cursor={"pointer"}
-                    class="fas fa-user-alt"
-                    style={{ fontSize: "26px", marginRight: "45px" }}
-                  ></i>
+                  <BsPersonCircle
+                    style={{
+                      height: "30px",
+                      width: "30px",
+                      marginLeft: "5px 25px",
+                    }}
+                  />
                 </PopoverTrigger>
                 <PopoverContent>
                   <PopoverHeader fontWeight="semibold" bg="teal.500">
