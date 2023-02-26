@@ -12,7 +12,7 @@ const Myorders = () => {
 
   return (
     <>
-      {orderdata.length >= 1 ? (
+      {orderdata?.length >= 1 ? (
         <div>
           <div
             style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)" }}
