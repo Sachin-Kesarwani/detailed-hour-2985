@@ -12,7 +12,6 @@ const SinglePage = () => {
   let [data, setdata] = useState([]);
   let [suggestion, setSuggetion] = useState([]);
   let [loading, setLoading] = useState(false);
-  console.log(params);
 
   function Getdata() {
     let url;
@@ -29,16 +28,22 @@ const SinglePage = () => {
     }
     axios.get(`${url}${title}`).then((res) => {
       setSuggetion(res.data);
-      let arr = res.data.filter((e) => e.Position === Number(id));
+      let arr = res.data.filter(
+        (e) => e.Position === Number(id) || e.id == Number(id)
+      );
       setdata(arr);
     });
   }
+
   useEffect(() => {
     Getdata();
   }, [id]);
+
   useEffect(() => {
     Getdata();
   }, []);
+  console.log(id, title);
+
   return loading ? (
     <Heading>Loading ...</Heading>
   ) : (

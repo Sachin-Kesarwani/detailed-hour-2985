@@ -129,7 +129,7 @@ console.log(item)
           <Img
             cursor={"pointer"}
             src={
-              item.image ||
+              item.image ||item.Image||
               "https://img1.hkrtcdn.com/19939/prd_1993850-MuscleBlaze-Fish-Oil-1000-mg-Indias-Only-Labdoor-USA-Certified-for-Purity-Accuracy-60-softgels_c_s.jpg"
             }
             margin={"auto"}
@@ -154,12 +154,12 @@ console.log(item)
             bg={"teal.300"}
             colorScheme="white"
           >
-            {item.rating || 3.9}
+            {item.rating ||item.Rating|| 3.9}
             <Icon as={StarIcon} color="white" />
           </Badge>
           <Spacer />
           <Text fontSize={"14px"} color={"gray.500"}>
-            {item.reviews || "2.9k " + " reviews"}
+            {item.reviews ||item.View|| "2.9k " + " reviews"}
           </Text>
           <Spacer />
           <Icon color={"green.300"} as={CheckCircleIcon} />
@@ -174,22 +174,22 @@ console.log(item)
         ></Box>
 
         <Text textAlign={"left"} color={"gray.700"} noOfLines={2}>
-          {item.title || "Hello sachin"}
+          {item.title ||item.Title|| "Hello sachin"}
         </Text>
         <Flex>
           <Heading as="h4" size="md">
-            ₹ {item.newprice || "₹400"}
+            ₹ {item.newprice ||item.Price|| "₹400"}
           </Heading>
           <Spacer />
           <Text fontSize="sm">
-            <del> ₹ {item.oldprice || "₹ 300"} </del>
+            <del> ₹ {item.oldprice ||item.Price2||item.Price3||item.price4|| "₹ 300"} </del>
           </Text>
           <Spacer />
           <Text fontSize="sm" color={"green.600"}>
-            {(((item.oldprice - item.newprice) * 100) / item.oldprice).toFixed(
+            {item.Discount||(((item.oldprice - item.newprice) * 100) / item.oldprice).toFixed(
            
-            ) || "40"}
-            % OFF
+            )+"  % OFF" || "40   % OFF"}
+          
           </Text>
           <Spacer />
           <Spacer /> <Spacer />
@@ -203,7 +203,7 @@ console.log(item)
           marginBottom={"10px"}
         >
           <Text textAlign={"center"}>
-            <Icon as={StarIcon} color={"orange.500"} /> dgfehggrjuhr
+            <Icon as={StarIcon} color={"orange.500"} />Fit-Factory Assured
           </Text>
         </Box>
 

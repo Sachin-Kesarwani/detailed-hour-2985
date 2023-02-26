@@ -6,17 +6,19 @@ import {
   DelfromWishlist,
   GetwishlistData,
   GetCart,
+  GetorderData,
 } from "./actiontype";
 
 let inistate = {
   cart: [],
   wishlist: [],
+  order:[],
   isLoading: false,
   isError: false,
 };
 
 export function reducer(state = inistate, action) {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case Loading: {
       return {
@@ -60,6 +62,11 @@ case(GetwishlistData):{
 case(GetCart):{
   return {
     ...state,cart:action.payload
+  }
+}
+case(GetorderData):{
+  return {
+    ...state,order:action.payload
   }
 }
     default: {

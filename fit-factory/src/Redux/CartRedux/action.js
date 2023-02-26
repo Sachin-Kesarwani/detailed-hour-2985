@@ -6,11 +6,12 @@ import {
   Error,
   GetCart,
   DelfromWishlist,
-  GetwishlistData
+  GetwishlistData,
+  GetorderData
 } from "./actiontype";
 
 
-let accountdata=JSON.parse(localStorage.getItem("accountdata"))||{id:17}
+let accountdata=JSON.parse(localStorage.getItem("accountdata"))
 // console.log(accountdata.id,"inredux")
 
 export function GetCartData(dispatch){
@@ -80,3 +81,30 @@ export const GetwishListdatafromjson=(dispatch)=>{
     dispatch({type:Error})
   })
 }
+
+
+
+export const PostdataInOrder = (data) => async (dispatch) => {
+  dispatch({ type: Loading });
+console.log(data,"wish in redux")
+ return  await axios({
+    url:`https://helpful-free-baroness.glitch.me/Users/${accountdata.id}`,
+    method:"patch",
+    data:{
+      order:data
+    }
+  })
+    
+};
+
+
+export const GetOrderdatafromjson=(dispatch)=>{
+  dispatch({ type: Loading });
+  axios(`https://helpful-free-baroness.glitch.me/Users/${accountdata.id}`)
+  .then((res)=>{
+    dispatch({type: GetorderData,payload:res.data.order})
+  }).catch((er)=>{
+    dispatch({type:Error})
+  })
+}
+
