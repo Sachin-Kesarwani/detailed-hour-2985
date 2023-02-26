@@ -44,7 +44,7 @@ export default function Carousel() {
       <div
         style={{
           backgroundColor: " #cceeff",
-          paddingTop: "10px",
+          paddingTop: "100px",
           paddingBottom: "10px",
         }}
       >
