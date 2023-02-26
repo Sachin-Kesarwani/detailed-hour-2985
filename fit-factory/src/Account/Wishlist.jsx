@@ -21,7 +21,7 @@ useEffect(()=>{
       {
         Wishlistdata.length>=1?Wishlistdata.map((e)=>{
             return <WishlistCard key={e.id||e.Position} item={e}/>
-        }):<Heading textAlign={"center"} >Nothin In Wishlist </Heading>
+        }):<Heading textAlign={"center"} >Nothing In Wishlist </Heading>
       }
     </div>
   )

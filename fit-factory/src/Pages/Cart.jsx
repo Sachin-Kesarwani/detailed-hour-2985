@@ -42,7 +42,7 @@ console.log(price,dis)
       cartdata.length>0? <div>
       <Flex>
         <Box w={"50%"}>
-          <Heading marginLeft={"80px"}>You cart</Heading>
+          <Heading textAlign={"center"} marginLeft={"80px"}>Your cart</Heading>
           {
         cartdata.length>=1?    cartdata?.map((e)=>{
               return <Sigglecart item={e} />

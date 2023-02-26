@@ -84,7 +84,7 @@ export default function SingleCard({ item }) {
                 fontWeight={300}
                 fontSize={"xl"}
               >
-                MRP <del> ₹ {item.Price2 || item.Price3 || item.Price4}</del>
+                MRP <del> ₹ {item.oldprice||item.Price2 || item.Price3 || item.Price4}</del>
               </Text>
               <Text
                 color={useColorModeValue("gray.900", "gray.400")}
