@@ -96,7 +96,7 @@ export default function Footer() {
           justify={{ md: "space-between" }}
           align={{ md: "center" }}
         >
-          <Text>© 2022 Fit-Factory. All rights reserved</Text>
+          <Text>Indis Moast Trusted and Good Product selling web .</Text>
           <Stack direction={"row"} spacing={6}>
             <SocialButton label={"Twitter"} href={"#"}>
               <FaTwitter />
