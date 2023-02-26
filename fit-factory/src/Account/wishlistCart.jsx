@@ -80,7 +80,7 @@ const WishlistCard = ({ item }) => {
     }
     setLoading2(false);
     toast({
-      title: `Product Alread In The cart`,
+      title: `Product Already In The cart`,
       position: "top-left",
       isClosable: true,
     });
