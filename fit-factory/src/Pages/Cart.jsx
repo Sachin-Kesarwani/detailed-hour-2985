@@ -1,6 +1,7 @@
-import { Flex ,Box,Heading, Button,Link,Text} from "@chakra-ui/react";
+import { Flex ,Box,Heading, Button,Text} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate,Link } from "react-router-dom";
 import EachcardOfCart from "../Account/EachCardofCart";
 import Sigglecart from "../Account/Sigglecart";
 import { GetCartData } from "../Redux/CartRedux/action";
@@ -11,6 +12,7 @@ const Cart = () => {
 let cartdata=useSelector((store)=>store?.CartReducer?.cart)
 let [price,setPrice]=useState(0)
 let [dis,setDis]=useState(0)
+let navigate=useNavigate()
 
 function getPrice(){
 
@@ -39,16 +41,19 @@ console.log(price,dis)
     {
       cartdata.length>0? <div>
       <Flex>
-        <Box border={"1px solid red"}  w={"50%"}>
+        <Box w={"50%"}>
+          <Heading marginLeft={"80px"}>You cart</Heading>
           {
         cartdata.length>=1?    cartdata?.map((e)=>{
               return <Sigglecart item={e} />
             }):<div style={{width:"100%",margin:"auto"}}>
             <Heading textAlign={"center"}>Nothing in The Cart 
-                 <Button>
-                 <Link to="/">
-                  Continue Shopping
-                  </Link>
+                 <Button >
+              <Link to="/">
+              Continue Shopping
+               
+              </Link>
+                 
                  </Button>
                 
                 </Heading>
@@ -58,8 +63,8 @@ console.log(price,dis)
           }
   
         </Box>
-        <Box border={"1px solid black"} w={"50%"}>
-          <div style={{width:"350px",height:"150px",margin:"30px",padding:"8px",boxShadow:" rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>
+        <Box  w={"50%"}>
+          <div style={{width:"350px",height:"200px",margin:"30px",padding:"8px",boxShadow:" rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>
             <Text  fontSize='2xl'>
             MRP : <del>
              ₹ {dis}
@@ -72,6 +77,12 @@ console.log(price,dis)
             <Text  fontSize='2xl'>
               Discount : {Math.abs(((dis-price*100)/dis).toFixed())} % OFF
             </Text>
+            <Button>
+              <Link to="/payment" >
+              Buy Now
+              </Link>
+            
+            </Button>
            </div>
       </Box>
         
@@ -87,7 +98,7 @@ console.log(price,dis)
                  </Button>
                 
                 </Heading>
-                <img width="400px" margin={"auto"} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStCYSKcjEWXhFvXUO4zVDrp-7Wa2t42YZNjw&usqp=CAU"/>
+                <img width="800px" margin={"auto"}  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStCYSKcjEWXhFvXUO4zVDrp-7Wa2t42YZNjw&usqp=CAU"/>
               
                 </div>
     }

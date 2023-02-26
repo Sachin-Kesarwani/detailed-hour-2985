@@ -34,7 +34,7 @@ let [loading,setLoading]=useState(false)
  accountdata = JSON.parse(localStorage.getItem("accountdata"))||{id:1}
   return (
     <>
-      <Heading>Personel Information </Heading>
+      <Heading marginLeft={"20px"}>Personel Information </Heading>
 
       {edit ? (
         <div style={{ width: "100px", marginLeft: "20px", padding: "5px" }}>

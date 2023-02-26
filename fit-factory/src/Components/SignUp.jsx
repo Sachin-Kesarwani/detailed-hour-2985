@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Navigate, useLocation} from "react-router-dom";
 
 const SignUp = () => {
   const toast = useToast();
@@ -19,7 +19,7 @@ const SignUp = () => {
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState();
   const [signupPhone, setSignupPhone] = useState();
-
+let location =useLocation()
   const SignUpCheck = () => {
     let signupobj = {
       name: signupName,
@@ -37,7 +37,7 @@ const SignUp = () => {
         console.log(res.data);
         localStorage.setItem("accountdata", JSON.stringify(res.data));
         localStorage.setItem("isAuth", true);
-        navigate("/");
+        <Navigate to="/signup" state={{ from: location}} replace />
         toast({
           title: "Account created.",
           description: "We've created your account for you.",

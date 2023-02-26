@@ -23,9 +23,11 @@ import {
 import MegaMenu from "./MegaMenu";
 import { BsCartPlus } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  let dispatch=useDispatch()
   // let isAuth=localStorage.getItem("isAuth")||false
   let isAuth=JSON.parse(localStorage.getItem("isAuth"))||false
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,6 +35,7 @@ let accountdata=JSON.parse(localStorage.getItem("accountdata"))
 function handleLogout(){
   localStorage.setItem("isAuth",false)
   navigate("/")
+
 }
 
 
@@ -52,7 +55,7 @@ console.log(typeof isAuth)
               <Input
                 placeholder="Search for products & brands"
                 value={searchQuery}
-                w="500px"
+                w="400px"
                 display={{ base: "none", md: "flex" }}
                 border="2px solid teal"
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -112,7 +115,7 @@ console.log(typeof isAuth)
                       >
                         &#xf004;
                       </i>{" "}
-                      WishList
+                   Go To Your Profile
                     </Text>
                     <Text
                       textAlign={"center"}

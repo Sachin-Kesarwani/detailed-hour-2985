@@ -8,9 +8,9 @@ function App() {
   console.log("param"+param);
   return (
     <div className="App">
-      {/* <Navbar /> */}
+      <Navbar />
       <AllRoutes />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
