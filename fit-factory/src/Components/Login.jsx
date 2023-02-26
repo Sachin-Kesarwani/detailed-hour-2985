@@ -16,33 +16,40 @@ const Login = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState();
+  const [loginPassword, setLoginPassword] = useState("");
 
   const LoginCheck = async () => {
     let res = await axios.get(`https://helpful-free-baroness.glitch.me/Users`);
     let data = await res.data;
-
-    data.map((el) => {
-      if (el.email === loginEmail && el.password === loginPassword) {
-        localStorage.setItem("accountdata", JSON.stringify(el));
-        navigate("/");
-        toast({
-          title: "Account created.",
-          description: "We've created your account for you.",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-        });
-      } else {
-        toast({
-          title: "Invalid Credentials",
-          description: "Your data is not matched to our record",
-          status: "failure",
-          duration: 5000,
-          isClosable: false,
-        });
-      }
-    });
+   console.log(data)
+   console.log(loginEmail)
+   console.log(loginPassword)
+    let notthere=true
+   for(let i=0;i<data.length;i++){
+    if(data[i].email==loginEmail&&data[i].password&&loginPassword){
+      localStorage.setItem("accountdata", JSON.stringify(data[i]));
+      localStorage.setItem("isAuth", true);
+      navigate("/");
+      toast({
+              title: "Successfully Login",
+              description: "Welcome to Fit-Factory",
+              status: "success",
+              duration: 5000,
+              isClosable: true,
+            });
+            notthere=false
+    }
+   }
+   if(notthere){
+    toast({
+            title: "Invalid Credentials",
+            description: "Your data is not matched to our record",
+            status: "failure",
+            duration: 5000,
+            isClosable: false,
+          });
+   }
+   
   };
 
   return (
