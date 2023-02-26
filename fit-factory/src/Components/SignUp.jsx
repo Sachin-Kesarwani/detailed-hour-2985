@@ -37,7 +37,8 @@ let location =useLocation()
         console.log(res.data);
         localStorage.setItem("accountdata", JSON.stringify(res.data));
         localStorage.setItem("isAuth", true);
-        <Navigate to="/" state={{ from: location}} replace />
+        navigate("/")
+        // <Navigate to="/" state={{ from: location}} replace />
         toast({
           title: "Account created.",
           description: "We've created your account for you.",
