@@ -27,7 +27,8 @@ const Account = () => {
   
   return (
     <div>
-    
+     <div style={{width:"100%",height:"130px"}}>
+
       <Flex w={"90%"} gap={"2%"} margin={"auto"} >
         <Box  w={"20%"} h={"400px"} >
           {
