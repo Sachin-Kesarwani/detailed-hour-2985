@@ -33,12 +33,17 @@ const SinglePage = () => {
       setdata(arr);
     });
   }
+
   useEffect(() => {
     Getdata();
   }, [id]);
+
   useEffect(() => {
     Getdata();
   }, []);
+
+  console.log(id, title);
+
   return loading ? (
     <Heading>Loading ...</Heading>
   ) : (

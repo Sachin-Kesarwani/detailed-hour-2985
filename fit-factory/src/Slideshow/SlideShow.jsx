@@ -27,19 +27,20 @@ export default function SlideShow({ noofslidocard, data, category }) {
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log("slide change")}
     >
-      {data.map((item, i) => {
-        return (
-          <SwiperSlide>
-            <div style={{ width: "100%" }}>
-              <EachCard
-                category={category}
-                handlePostdataIncart={handlePostdataIncart}
-                item={item}
-              />
-            </div>
-          </SwiperSlide>
-        );
-      })}
+        {
+        data.filter((e,i)=>i<12).map((item,i)=>{
+            return  <SwiperSlide>
+             <div style={{width:"100%"}}>
+             <EachCard category={category} handlePostdataIncart={handlePostdataIncart }   item={item}/>
+             </div>
+              
+           
+              
+               </SwiperSlide>
+           })
+        }
+       
+     
     </Swiper>
   );
 }
