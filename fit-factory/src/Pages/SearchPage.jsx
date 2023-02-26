@@ -70,7 +70,7 @@ const SearchPage = () => {
     );
   } else {
     return (
-      <>
+      <div style={{ alignContent: "center", paddingTop: "120px" }}>
         {/* ------- Sort By Price ------- */}
         <Select
           m="7px"
@@ -190,7 +190,7 @@ const SearchPage = () => {
             Next
           </Button>
         </Box>
-      </>
+      </div>
     );
   }
 };

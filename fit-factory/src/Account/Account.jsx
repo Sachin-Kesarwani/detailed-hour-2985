@@ -31,8 +31,8 @@ const Account = () => {
   let [active, setactive] = useState(0);
 
   return (
-    <div>
-      <div style={{ width: "100%", height: "130px" }}>
+    <div style={{ alignContent: "center", paddingTop: "120px" }}>
+      <div style={{ width: "100%", height: "auto" }}>
         <Flex w={"90%"} gap={"2%"} margin={"auto"}>
           <Box w={"20%"} h={"400px"}>
             {arr.map((e) => {

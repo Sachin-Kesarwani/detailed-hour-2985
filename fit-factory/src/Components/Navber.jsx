@@ -21,7 +21,7 @@ import {
   PopoverContent,
 } from "@chakra-ui/react";
 import MegaMenu from "./MegaMenu";
-import { BsCartPlus,BsPersonCircle } from "react-icons/bs";
+import { BsCartPlus, BsPersonCircle } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -41,8 +41,6 @@ export default function Navbar() {
   return (
     <div
       style={{
-        // position: "-webkit-sticky",
-        // position: "sticky",
         position: "fixed",
         zIndex: "10",
         width: "100%",
@@ -80,26 +78,32 @@ export default function Navbar() {
             {/* -------------- SignUp ------------- */}
 
             {isAuth ? (
-              <Popover placement="top-start">
+              <Popover placement="right">
                 <PopoverTrigger>
                   <BsPersonCircle
                     style={{
                       height: "30px",
                       width: "30px",
-                        marginRight: " 45px",
+                      marginRight: " 45px",
                     }}
                   />
                 </PopoverTrigger>
-                <PopoverContent>
+                <PopoverContent marginLeft="350%">
                   <PopoverHeader fontWeight="semibold" bg="teal.500">
                     <Flex>
                       <Avatar
                         bg={"white"}
                         color={"teal"}
                         size="md"
+                        margin="2px 5px"
                         name={`${accountdata.name}`}
                       />
-                      <Heading color="white" as="h3" size="lg">
+                      <Heading
+                        color="white"
+                        as="h3"
+                        size="lg"
+                        textAlign={"center"}
+                      >
                         Hi , {accountdata.name}{" "}
                       </Heading>{" "}
                     </Flex>{" "}
