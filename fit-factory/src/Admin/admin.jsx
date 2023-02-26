@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import AddProduct from "./Components/addProduct";
-
 import SidebarWithHeader from "./Components/adminSidebar";
 import Products from "./Components/products";
-
 import Stats from "./Components/stats";
 import Users from "./Components/users";
+
 const Admin = () => {
   const [preview, setPreview] = useState("stats");
-
   const changePreview = (value) => {
     setPreview(value);
   };
@@ -28,9 +26,9 @@ const Admin = () => {
       case "users":
         defaultComponent = <Users />;
         break;
-        case "addProduct":
-          defaultComponent = <AddProduct />;
-          break;
+      case "addProduct":
+        defaultComponent = <AddProduct />;
+        break;
       default:
         defaultComponent = <Stats />;
     }

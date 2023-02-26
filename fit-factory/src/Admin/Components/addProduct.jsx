@@ -80,7 +80,7 @@ const AddProduct = () => {
   function addProduct() {
     let obj = {
       Title: title,
-      Image:image,
+      Image: image,
       Rating: rating,
       Price: discountedPrice,
       Price2: price,

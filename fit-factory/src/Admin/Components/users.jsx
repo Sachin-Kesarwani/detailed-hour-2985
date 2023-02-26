@@ -7,7 +7,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetUsers } from "../../Redux/AdminRedux/action";
 
@@ -56,8 +56,8 @@ const Users = () => {
                     <Td>{i.email}</Td>
                     <Td>{i.password}</Td>
                     <Td isNumeric>{i.phone}</Td>
-                    <Td isNumeric>{i.cart.length||"-"}</Td>
-                    <Td isNumeric>{i.wishlist.length||"-"}</Td>
+                    <Td isNumeric>{i.cart.length || "-"}</Td>
+                    <Td isNumeric>{i.wishlist.length || "-"}</Td>
                   </Tr>
                 );
               })}

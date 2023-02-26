@@ -9,6 +9,7 @@ import { store } from "./Redux/store";
 import { BrowserRouter } from "react-router-dom";
 import AuthContextProvider from "./Context/Authcontext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <Provider store={store}>
     <BrowserRouter>

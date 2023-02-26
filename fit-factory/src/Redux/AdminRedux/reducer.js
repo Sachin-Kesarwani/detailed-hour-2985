@@ -56,8 +56,8 @@ export function reducer(oldState = initialstate, action) {
     case types.AddProduct: {
       return {
         ...oldState,
-        isLoading:false,
-        products:[action.payload,...oldState.products]
+        isLoading: false,
+        products: [action.payload, ...oldState.products],
       };
     }
     case types.Error: {
@@ -70,19 +70,19 @@ export function reducer(oldState = initialstate, action) {
     case types.TotalProductsadd: {
       return {
         ...oldState,
-        totalProducts:oldState.totalProducts+1
+        totalProducts: oldState.totalProducts + 1,
       };
     }
     case types.TotalProductsless: {
       return {
         ...oldState,
-        totalProducts:oldState.totalProducts-1
+        totalProducts: oldState.totalProducts - 1,
       };
     }
     case types.TotalUsers: {
       return {
         ...oldState,
-        totalUser:oldState.totalUser+1
+        totalUser: oldState.totalUser + 1,
       };
     }
 

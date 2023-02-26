@@ -12,7 +12,7 @@ import {
 let inistate = {
   cart: [],
   wishlist: [],
-  order:[],
+  order: [],
   isLoading: false,
   isError: false,
 };
@@ -43,7 +43,7 @@ export function reducer(state = inistate, action) {
     case AddInWishList: {
       return {
         ...state,
-      
+
         isLoading: false,
       };
     }
@@ -53,22 +53,25 @@ export function reducer(state = inistate, action) {
         wishlist: state.wishlist?.map((e) => e.Position !== action.payload),
       };
     }
-case(GetwishlistData):{
-  return {
-    ...state,wishlist:action.payload
-  }
-}
+    case GetwishlistData: {
+      return {
+        ...state,
+        wishlist: action.payload,
+      };
+    }
 
-case(GetCart):{
-  return {
-    ...state,cart:action.payload
-  }
-}
-case(GetorderData):{
-  return {
-    ...state,order:action.payload
-  }
-}
+    case GetCart: {
+      return {
+        ...state,
+        cart: action.payload,
+      };
+    }
+    case GetorderData: {
+      return {
+        ...state,
+        order: action.payload,
+      };
+    }
     default: {
       return state;
     }

@@ -31,8 +31,7 @@ import {
   PostdataInWishList,
   DeldatafromWishlist,
 } from "../Redux/CartRedux/action";
-export default function EachCard({ item, handlePostdataIncart ,category}) {
- 
+export default function EachCard({ item, handlePostdataIncart, category }) {
   const [liked, setLiked] = useState(false);
   function fun() {
     // console.log("ho");
@@ -42,42 +41,41 @@ export default function EachCard({ item, handlePostdataIncart ,category}) {
   let dispatch = useDispatch();
   let wishlistdata = useSelector((store) => store?.CartReducer?.wishlist);
   function AddInWishList(data) {
-   
-console.log(item)
+    console.log(item);
     if (!liked) {
       if (wishlistdata.length && wishlistdata.length >= 1) {
         let notThere = true;
-        for (let i = 0; i <wishlistdata.length; i++) {
+        for (let i = 0; i < wishlistdata.length; i++) {
           if (wishlistdata[i].image == data.image) {
             notThere = false;
             break;
           }
         }
-  
+
         if (notThere) {
-          console.log("iside not there")
-          let arr=[...wishlistdata,data]
-          dispatch(PostdataInWishList(arr)).then((re)=>{
-            dispatch(GetwishListdatafromjson)
+          console.log("iside not there");
+          let arr = [...wishlistdata, data];
+          dispatch(PostdataInWishList(arr)).then((re) => {
+            dispatch(GetwishListdatafromjson);
           });
         }
       }
       if (wishlistdata.length == 0) {
-        let arr=[data]
-      console.log("inside if")
-        dispatch(PostdataInWishList(arr)).then((re)=>{
-          dispatch(GetwishListdatafromjson)
+        let arr = [data];
+        console.log("inside if");
+        dispatch(PostdataInWishList(arr)).then((re) => {
+          dispatch(GetwishListdatafromjson);
         });
       }
     }
     if (liked) {
-      let arr=wishlistdata.filter((e)=>e.Position!==data.Position)
-      dispatch(PostdataInWishList(arr)).then((re)=>{
-        dispatch(GetwishListdatafromjson)
+      let arr = wishlistdata.filter((e) => e.Position !== data.Position);
+      dispatch(PostdataInWishList(arr)).then((re) => {
+        dispatch(GetwishListdatafromjson);
       });
     }
   }
-   
+
   return (
     <Box
       id="eachcardBox"
@@ -125,22 +123,22 @@ console.log(item)
         </HStack>
         <Box h={"200px"} borderBottom={"1px"}>
           <Link to={`/singlePage/${category}/${item.Position}`}>
-       
-          <Img
-            cursor={"pointer"}
-            src={
-              item.image ||item.Image||
-              "https://img1.hkrtcdn.com/19939/prd_1993850-MuscleBlaze-Fish-Oil-1000-mg-Indias-Only-Labdoor-USA-Certified-for-Purity-Accuracy-60-softgels_c_s.jpg"
-            }
-            margin={"auto"}
-            roundedTop={"sm"}
-            objectFit="cover"
-            h="full"
-            // w="full"
-            w={"60%"}
-            alt={"Blog Image"}
-          />
-             </Link>
+            <Img
+              cursor={"pointer"}
+              src={
+                item.image ||
+                item.Image ||
+                "https://img1.hkrtcdn.com/19939/prd_1993850-MuscleBlaze-Fish-Oil-1000-mg-Indias-Only-Labdoor-USA-Certified-for-Purity-Accuracy-60-softgels_c_s.jpg"
+              }
+              margin={"auto"}
+              roundedTop={"sm"}
+              objectFit="cover"
+              h="full"
+              // w="full"
+              w={"60%"}
+              alt={"Blog Image"}
+            />
+          </Link>
         </Box>
       </Box>
 
@@ -154,12 +152,12 @@ console.log(item)
             bg={"teal.300"}
             colorScheme="white"
           >
-            {item.rating ||item.Rating|| 3.9}
+            {item.rating || item.Rating || 3.9}
             <Icon as={StarIcon} color="white" />
           </Badge>
           <Spacer />
           <Text fontSize={"14px"} color={"gray.500"}>
-            {item.reviews ||item.View|| "2.9k " + " reviews"}
+            {item.reviews || item.View || "2.9k " + " reviews"}
           </Text>
           <Spacer />
           <Icon color={"green.300"} as={CheckCircleIcon} />
@@ -174,22 +172,32 @@ console.log(item)
         ></Box>
 
         <Text textAlign={"left"} color={"gray.700"} noOfLines={2}>
-          {item.title ||item.Title|| "Hello sachin"}
+          {item.title || item.Title || "Hello sachin"}
         </Text>
         <Flex>
           <Heading as="h4" size="md">
-            ₹ {item.newprice ||item.Price|| "₹400"}
+            ₹ {item.newprice || item.Price || "₹400"}
           </Heading>
           <Spacer />
           <Text fontSize="sm">
-            <del> ₹ {item.oldprice ||item.Price2||item.Price3||item.price4|| "₹ 300"} </del>
+            <del>
+              {" "}
+              ₹{" "}
+              {item.oldprice ||
+                item.Price2 ||
+                item.Price3 ||
+                item.price4 ||
+                "₹ 300"}{" "}
+            </del>
           </Text>
           <Spacer />
           <Text fontSize="sm" color={"green.600"}>
-            {item.Discount||(((item.oldprice - item.newprice) * 100) / item.oldprice).toFixed(
-           
-            )+"  % OFF" || "40   % OFF"}
-          
+            {item.Discount ||
+              (
+                ((item.oldprice - item.newprice) * 100) /
+                item.oldprice
+              ).toFixed() + "  % OFF" ||
+              "40   % OFF"}
           </Text>
           <Spacer />
           <Spacer /> <Spacer />
@@ -203,7 +211,8 @@ console.log(item)
           marginBottom={"10px"}
         >
           <Text textAlign={"center"}>
-            <Icon as={StarIcon} color={"orange.500"} />Fit-Factory Assured
+            <Icon as={StarIcon} color={"orange.500"} />
+            Fit-Factory Assured
           </Text>
         </Box>
 

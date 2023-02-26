@@ -5,10 +5,8 @@ import Cart from "../Pages/Cart";
 import EachcardOfCart from "./EachCardofCart";
 import Logoutpage from "./Logoutpage";
 import Myorders from "./Myorders";
-
 import PersonelInfo from "./PersonelInfo";
 import Wishlist from "./Wishlist";
-
 let arr = [
   {
     id: 0,

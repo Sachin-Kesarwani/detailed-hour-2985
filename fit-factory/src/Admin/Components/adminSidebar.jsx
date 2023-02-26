@@ -1,12 +1,9 @@
-
 import {
   IconButton,
-
   Box,
   CloseButton,
   Flex,
   HStack,
-
   Icon,
   useColorModeValue,
   Link,
@@ -14,36 +11,26 @@ import {
   DrawerContent,
   Text,
   useDisclosure,
-
   Image,
-} from '@chakra-ui/react';
-import {
-
-  FiMenu,
-
-} from 'react-icons/fi';
-
-
+} from "@chakra-ui/react";
+import { FiMenu } from "react-icons/fi";
 
 const LinkItems = [
-  { name: 'Statistics',preview:"stats"},
-  { name: 'Products',preview:"allproducts"},
-  { name: 'Users',preview:"users"},
-  { name: 'Admins',preview:"admins"},
-  { name: 'Add Product',preview:"addProduct"},
+  { name: "Statistics", preview: "stats" },
+  { name: "Products", preview: "allproducts" },
+  { name: "Users", preview: "users" },
+  { name: "Admins", preview: "admins" },
+  { name: "Add Product", preview: "addProduct" },
 ];
 
-export default function SidebarWithHeader({
-  children,
-  changePreview
-}) {
+export default function SidebarWithHeader({ children, changePreview }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box  bg={useColorModeValue('gray.900', 'gray.900')}>
+    <Box bg={useColorModeValue("gray.900", "gray.900")}>
       <SidebarContent
         onClose={() => onClose}
         changePreview={changePreview}
-        display={{ base: 'none', md: 'block' }}
+        display={{ base: "none", md: "block" }}
       />
       <Drawer
         autoFocus={false}
@@ -52,42 +39,46 @@ export default function SidebarWithHeader({
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="full">
+        size="full"
+      >
         <DrawerContent>
           <SidebarContent onClose={onClose} />
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }}>
-        {children}
-      </Box>
+      <Box ml={{ base: 0, md: 60 }}>{children}</Box>
     </Box>
   );
 }
 
-
-
-const SidebarContent = ({ onClose,changePreview, ...rest }) => {
-  console.log(changePreview)
+const SidebarContent = ({ onClose, changePreview, ...rest }) => {
+  console.log(changePreview);
   return (
     <Box
       transition="3s ease"
-      bg={useColorModeValue('white', 'gray.900')}
+      bg={useColorModeValue("white", "gray.900")}
       borderRight="1px"
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
+      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
-      {...rest}>
+      {...rest}
+    >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
           Dhasboard
         </Text>
-        <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
+        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon} onClick={()=>{changePreview(link.preview)}}>
+        <NavItem
+          key={link.name}
+          icon={link.icon}
+          onClick={() => {
+            changePreview(link.preview);
+          }}
+        >
           {link.name}
         </NavItem>
       ))}
@@ -95,10 +86,13 @@ const SidebarContent = ({ onClose,changePreview, ...rest }) => {
   );
 };
 
-
 const NavItem = ({ icon, children, ...rest }) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link
+      href="#"
+      style={{ textDecoration: "none" }}
+      _focus={{ boxShadow: "none" }}
+    >
       <Flex
         align="center"
         p="4"
@@ -107,16 +101,17 @@ const NavItem = ({ icon, children, ...rest }) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: '#00b8b9',
-          color: 'white',
+          bg: "#00b8b9",
+          color: "white",
         }}
-        {...rest}>
+        {...rest}
+      >
         {icon && (
           <Icon
             mr="4"
             fontSize="16"
             _groupHover={{
-              color: 'white',
+              color: "white",
             }}
             as={icon}
           />
@@ -134,13 +129,14 @@ const MobileNav = ({ onOpen, ...rest }) => {
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue('white', 'gray.900')}
+      bg={useColorModeValue("white", "gray.900")}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-      justifyContent={{ base: 'space-between', md: 'flex-end' }}
-      {...rest}>
+      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      justifyContent={{ base: "space-between", md: "flex-end" }}
+      {...rest}
+    >
       <IconButton
-        display={{ base: 'flex', md: 'none' }}
+        display={{ base: "flex", md: "none" }}
         onClick={onOpen}
         variant="outline"
         aria-label="open menu"
@@ -148,18 +144,22 @@ const MobileNav = ({ onOpen, ...rest }) => {
       />
 
       <Text
-        display={{ base: 'flex', md: 'none' }}
+        display={{ base: "flex", md: "none" }}
         fontSize="2xl"
         fontFamily="monospace"
-        fontWeight="bold">
+        fontWeight="bold"
+      >
         Dhasboard
       </Text>
 
-      <HStack spacing={{ base: '0', md: '6' }}>
-      <Image src="Fit-Factory-Logo.png" w="440px" h="282px" objectFit={"scale-down"} >
-
-            </Image>
-        <Flex alignItems={'center'}>
+      <HStack spacing={{ base: "0", md: "6" }}>
+        <Image
+          src="Fit-Factory-Logo.png"
+          w="440px"
+          h="282px"
+          objectFit={"scale-down"}
+        ></Image>
+        <Flex alignItems={"center"}>
           {/* <Menu>
             <MenuButton
               py={2}
