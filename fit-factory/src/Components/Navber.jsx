@@ -88,7 +88,7 @@ export default function Navbar() {
                     }}
                   />
                 </PopoverTrigger>
-                <PopoverContent marginLeft="350%">
+                <PopoverContent marginLeft="250%">
                   <PopoverHeader fontWeight="semibold" bg="teal.500">
                     <Flex>
                       <Avatar
