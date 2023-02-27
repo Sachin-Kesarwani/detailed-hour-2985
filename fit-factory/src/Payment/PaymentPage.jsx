@@ -198,15 +198,7 @@ export default function Payment() {
             onChange={paymentformdata}
           />
         </FormLabel>
-        <FormLabel>
-          Valid thru :
-          <select
-            onChange={paymentformdata}
-            name="mon"
-            value={paymentdata.mon}
-          />
-         
-        </FormLabel>
+      
         <FormLabel>
           Valid thru :
           <select onChange={paymentformdata} name="mon" value={paymentdata.mon}>
