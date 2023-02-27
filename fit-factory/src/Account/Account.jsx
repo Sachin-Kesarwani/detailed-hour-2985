@@ -62,7 +62,7 @@ const Account = () => {
                 </div>
               );
             })}
-            <Link to="/admin">
+            <Link to="/admin" target="_blank">
               <div
                 style={{
                   border: "1px solid red",
