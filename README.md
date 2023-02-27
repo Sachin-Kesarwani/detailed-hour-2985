@@ -10,6 +10,9 @@
 <h1>Screen shots </h1>
 <img src="https://i.ibb.co/Ykg1R1P/Screenshot-766.png" />
   <img  src="https://i.ibb.co/0h2gXWc/Screenshot-767.png" />
+  <img  src="https://i.ibb.co/K5tnPKh/Screenshot-768.png" />
+  <img src="https://i.ibb.co/HgwSFYy/Screenshot-769.png" />
+  <img src="https://i.ibb.co/SdqWRGs/Screenshot-770.png"/>
   <h1>Finctionality</h1>
   <li>Login<li>
     <li>Signup<li>
