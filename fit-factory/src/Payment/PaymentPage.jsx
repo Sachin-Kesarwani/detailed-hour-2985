@@ -205,13 +205,7 @@ export default function Payment() {
             name="mon"
             value={paymentdata.mon}
           />
-          CVV :{" "}
-          <Input
-            placeholder="Enter cvv code"
-            name="cvv"
-            value={paymentdata.cvv}
-            onChange={paymentformdata}
-          />
+         
         </FormLabel>
         <FormLabel>
           Valid thru :
