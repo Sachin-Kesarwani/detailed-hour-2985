@@ -15,7 +15,7 @@ export default function Loadingindicator() {
     let w = window.innerWidth;
     console.log(w);
     if (w > 860) {
-      setCol(4);
+      setCol(3);
       setskeletonhth(30);
       setskeletonwth(25);
     } else if (w > 500 && w < 859) {
