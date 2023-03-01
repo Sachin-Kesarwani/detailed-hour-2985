@@ -29,7 +29,7 @@ const Login = () => {
       if (data[i].email == loginEmail && data[i].password && loginPassword) {
         localStorage.setItem("accountdata", JSON.stringify(data[i]));
         localStorage.setItem("isAuth", true);
-        navigate("/");
+     
         toast({
           title: "Successfully Login",
           description: "Welcome to Fit-Factory",
@@ -37,6 +37,7 @@ const Login = () => {
           duration: 5000,
           isClosable: true,
         });
+           navigate("/");
         notthere = false;
       }
     }
