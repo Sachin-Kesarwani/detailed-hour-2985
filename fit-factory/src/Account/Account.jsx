@@ -169,9 +169,7 @@ const Account = () => {
         </Flex>
       </div>
 
-//       <Button ml={4} ref={finalRef}>
-//           I'll receive focus on close
-//         </Button>
+
   
         <Modal
           initialFocusRef={initialRef}
