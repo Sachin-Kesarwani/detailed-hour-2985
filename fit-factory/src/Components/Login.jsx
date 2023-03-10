@@ -26,7 +26,7 @@ const Login = () => {
     console.log(loginPassword);
     let notthere = true;
     for (let i = 0; i < data.length; i++) {
-      if (data[i].email == loginEmail && data[i].password && loginPassword) {
+      if (data[i].email == loginEmail && data[i].password == loginPassword) {
         localStorage.setItem("accountdata", JSON.stringify(data[i]));
         localStorage.setItem("isAuth", true);
      
