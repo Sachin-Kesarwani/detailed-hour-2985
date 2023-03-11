@@ -75,7 +75,7 @@ export default function SingleCard({ item }) {
               <Heading
                 lineHeight={1.1}
                 fontWeight={400}
-                fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
+                fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
               >
                 {item.title || item.Title || item.Name}...
               </Heading>
