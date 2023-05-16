@@ -18,6 +18,14 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 const MegaMenu = () => {
   return (
     <Box
+    display={{
+      base:"none",
+      sm: "none", // 480px
+      md: 'none', // 768px
+      lg: 'block', // 992px
+      xl: 'block', // 1280px
+      '2xl': 'block', // 1536px
+    }}
       w={{ base: "100%", lg: "100%" }}
       p="5px 2%"
       margin="auto"

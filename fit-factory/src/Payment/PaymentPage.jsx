@@ -157,7 +157,7 @@ export default function Payment() {
 
   //   console.log(cartItem)
   return (
-    <div style={{ alignContent: "center", paddingTop: "125px" }}>
+    <div style={{ alignContent: "center"}}>
       <Heading textAlign={"center"}>Payment</Heading>
       <Box w={`${width}%`} margin="auto">
         <FormLabel>

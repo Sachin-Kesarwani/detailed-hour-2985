@@ -1,4 +1,4 @@
-import { Flex, Box, Heading, Button, Text } from "@chakra-ui/react";
+import { Flex, Box, Heading, Button, Text,Image } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
@@ -38,17 +38,25 @@ const Cart = () => {
     <div
       style={{
         alignContent: "center",
-        paddingTop: "125px",
+       
         marginBottom: "25px",
       }}
     >
-      {cartdata.length > 0 ? (
-        <div>
-          <Flex>
-            <Box w={"50%"}>
-              <Heading textAlign={"center"} marginLeft={"80px"}>
+         <Heading textAlign={"center"} marginLeft={"80px"}>
                 Your cart
               </Heading>
+      {cartdata.length > 0 ? (
+        <div>
+          <Flex flexDirection={ {
+            base:"column",
+  sm: 'column', // 480px
+  md: 'column', // 768px
+  lg: 'row', // 992px
+  xl: 'row', // 1280px
+  '2xl': 'row', // 1536px
+}}>
+            <Box w={"50%"}>
+           
               {cartdata.length >= 1 ? (
                 cartdata?.map((e) => {
                   return <Sigglecart item={e} />;
@@ -61,8 +69,11 @@ const Cart = () => {
                       <Link to="/">Continue Shopping</Link>
                     </Button>
                   </Heading>
-                  <img
+                  <Image
                     width="400px"
+                    display="flex"
+                    justifyContent={"center"}
+                    border
                     margin={"auto"}
                     alt="emptyImage"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStCYSKcjEWXhFvXUO4zVDrp-7Wa2t42YZNjw&usqp=CAU"
@@ -73,7 +84,7 @@ const Cart = () => {
             <Box w={"50%"}>
               <div
                 style={{
-                  width: "350px",
+                  width: "200px",
                   height: "200px",
                   margin: "30px",
                   padding: "8px",
@@ -103,7 +114,9 @@ const Cart = () => {
               <Link to="/">Continue Shopping</Link>
             </Button>
           </Heading>
-          <img
+          <Image
+         filter="blur(0px)"
+         transition= "filter 0.5s ease-out"
             width="800px"
             margin={"auto"}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStCYSKcjEWXhFvXUO4zVDrp-7Wa2t42YZNjw&usqp=CAU"

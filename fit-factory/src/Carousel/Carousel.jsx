@@ -44,7 +44,8 @@ export default function Carousel() {
       <div
         style={{
           backgroundColor: " #cceeff",
-          paddingTop: "100px",
+         width:"100%",
+         border:'1px solid black',
           paddingBottom: "10px",
         }}
       >
@@ -54,7 +55,7 @@ export default function Carousel() {
         id="carousel_1"
         position={"relative"}
         // position={"sticky"}
-        width={"full"}
+        width={"100%"}
         overflow={"hidden"}
       >
         {/* CSS files for react-slick */}

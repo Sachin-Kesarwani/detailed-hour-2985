@@ -122,7 +122,7 @@ const Home = () => {
     <div>
       <Carousel />
 
-      <hr style={{ border: "3px solid #c2c2d6", marginBottom: "25px" }}></hr>
+      <hr style={{ border: "3px solid #c2c2d6", marginBottom: "25px", width:"100%" }}></hr>
 
       {loading ? (
         <Loadingindicator />

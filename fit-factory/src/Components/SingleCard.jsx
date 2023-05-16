@@ -52,7 +52,7 @@ export default function SingleCard({ item }) {
   }
   console.log(item);
   return (
-    <div style={{ alignContent: "center", paddingTop: "120px" }}>
+    <div style={{ alignContent: "center"}}>
       <Container maxW={"7xl"}>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
@@ -75,7 +75,7 @@ export default function SingleCard({ item }) {
               <Heading
                 lineHeight={1.1}
                 fontWeight={400}
-                fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
+                fontSize={{ base: "xl", sm: "xl", lg: "2xl" }}
               >
                 {item.title || item.Title || item.Name}...
               </Heading>

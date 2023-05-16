@@ -24,6 +24,7 @@ import MegaMenu from "./MegaMenu";
 import { BsCartPlus, BsPersonCircle } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Search2Icon } from "@chakra-ui/icons";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -41,9 +42,10 @@ export default function Navbar() {
   return (
     <div
       style={{
-        position: "fixed",
+        position: "sticky",
+        top:0,
         zIndex: "10",
-        width: "100%",
+        width: "full",
         height: "auto",
       }}
     >
@@ -67,9 +69,26 @@ export default function Navbar() {
               />
               <Link to={`/searchpage/${searchQuery}`}>
                 {" "}
-                <Button colorScheme={"teal"} onClick={() => setSearchQuery("")}>
+                <Button display={ {
+                  base:"none",
+  sm: 'none', // 480px
+  md: 'block', // 768px
+  lg: 'block', // 992px
+  xl: 'block', // 1280px
+  '2xl': 'block', // 1536px
+}} colorScheme={"teal"} onClick={() => setSearchQuery("")}>
                   Search
                 </Button>
+              </Link>
+              <Link to="/searchproduct">
+              <Search2Icon justifyContent={"end"} marginRight={"10px"}  fontSize={"20px"} display={ {
+                  base:"block",
+  sm: 'block', // 480px
+  md: 'none', // 768px
+  lg: 'none', // 992px
+  xl: 'none', // 1280px
+  '2xl': 'none', // 1536px
+}}/>
               </Link>
             </HStack>
           </HStack>
@@ -78,17 +97,17 @@ export default function Navbar() {
             {/* -------------- SignUp ------------- */}
 
             {isAuth ? (
-              <Popover placement="right">
-                <PopoverTrigger>
+              <Popover>
+                <PopoverTrigger   position={"relative"}>
                   <BsPersonCircle
                     style={{
                       height: "30px",
                       width: "30px",
-                      marginRight: " 45px",
+                      marginRight: "3vw",
                     }}
                   />
                 </PopoverTrigger>
-                <PopoverContent marginLeft="250%">
+                <PopoverContent w={"270px"}  marginTop={"100px"} >
                   <PopoverHeader fontWeight="semibold" bg="teal.500">
                     <Flex>
                       <Avatar

@@ -259,22 +259,7 @@ export default function EachCard({ item, handlePostdataIncart, category }) {
             Cart
           </Box>
         )}
-        {/* <Box
-            cursor={"pointer"}
-            _hover={{ bg: "orange", color: "white" }}
-            padding={"10px 15px"}
-            borderRadius={"10px"}
-            fontSize={"17px"}
-            color={"orange.400"}
-            fontWeight={"bold"}
-            border={"1.5px solid orange"}
-            marginTop={"10px"}
-            marginBottom={"10px"}
-            textAlign={"center"}
-          >
-            <Icon as={FiShoppingCart} h={5} w={5} alignSelf={"center"} /> Add To
-            Cart
-          </Box> */}
+      
       </Box>
     </Box>
     // </Center>

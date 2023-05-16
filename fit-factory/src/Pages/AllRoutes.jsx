@@ -18,6 +18,7 @@ import PrePostWorkout from "./PrePostWorkout/PrePostWorkout";
 import WorkoutEssentials from "./WorkoutEssestials/WorkoutEssentials";
 import FrontedPrivate from "../Components/FrontedPrivate";
 import Payment from "../Payment/PaymentPage";
+import { SearchforProductFormobile } from "../Components/Search";
 
 const AllRoutes = () => {
   return (
@@ -61,6 +62,7 @@ const AllRoutes = () => {
         />
         <Route path="/workoutessentials" element={<WorkoutEssentials />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/searchproduct" element={<SearchforProductFormobile/>}/>
       </Routes>
     </div>
   );

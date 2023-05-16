@@ -89,10 +89,23 @@ const Account = () => {
 
     }
   return (
-    <div style={{ alignContent: "center", paddingTop: "120px" }}>
+    <div style={{ alignContent: "center" }}>
       <div style={{ width: "100%", height: "auto" }}>
-        <Flex w={"90%"} gap={"2%"} margin={"auto"}>
-          <Box w={"20%"} h={"400px"}>
+        <Flex w={"90%"} gap={"2%"} flexDirection={ {
+          base:"column",
+  sm: 'column', // 480px
+  md: 'row', // 768px
+  lg: 'row', // 992px
+  xl: 'row', // 1280px
+  '2xl': 'row', // 1536px
+}} margin={"auto"}>
+          <Box w={ {
+  sm: '50%%', // 480px
+  md: '30%', // 768px
+  lg: '20%', // 992px
+  xl: '20%', // 1280px
+  '2xl': '20%', // 1536px
+}} h={"300px"}>
             {arr.map((e) => {
               return (
                 <div
@@ -148,7 +161,7 @@ const Account = () => {
             boxShadow={
               "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px"
             }
-            w={"78%"}
+            w={"90%"}
           >
             {active == 0 ? (
               <PersonelInfo />

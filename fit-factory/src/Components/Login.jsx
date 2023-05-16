@@ -53,17 +53,17 @@ const Login = () => {
   };
 
   return (
-    <div style={{ alignContent: "center", paddingTop: "100px" }}>
+    <div style={{ alignContent: "center" }}>
       <FormControl bg="#f2e3c6" p="20px">
         <Flex>
-          <Image
+          {/* <Image
             src="https://static1.hkrtcdn.com/hknext/static/media/login/slider/1.svg"
             alt="loginImage"
             w="40%"
             height="400px"
             display="block"
             m="auto"
-          />
+          /> */}
           <Box dispaly="block" m="auto">
             <Text fontSize="32px" fontWeight="bold" m="5px" textAlign="center">
               Login
