@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import {Link} from "react-router-dom"
 const Login = () => {
   const toast = useToast();
   const navigate = useNavigate();
@@ -70,20 +70,21 @@ const Login = () => {
             </Text>
             <Input
               m="10px 5px"
-              w="500px"
+              w="100%"
               id="loginemail"
               type="email"
               placeholder="Email"
-              display={{ base: "none", md: "flex" }}
+              display={{  md: "flex" }}
               border="1px solid teal"
               onChange={(e) => setLoginEmail(e.target.value)}
             />
             <Input
+               w="100%"
               m="10px 5px"
               id="loginpassword"
               type="password"
               placeholder="Password"
-              display={{ base: "none", md: "flex" }}
+              display={{md: "flex" }}
               border="1px solid teal"
               onChange={(e) => setLoginPassword(e.target.value)}
             />
@@ -96,7 +97,9 @@ const Login = () => {
             >
               Login
             </Button>
-
+            <Text>
+        If You are new  , Please <Link to="/login"><Text display={"inline"} color={"blue"}>Signup</Text></Link>
+      </Text>
             <Text textAlign="center">
               ** Welcome back again to our service. **
             </Text>

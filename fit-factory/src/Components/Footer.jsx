@@ -50,6 +50,9 @@ export default function Footer() {
     <Box
       bg={useColorModeValue("blackAlpha.900", "blackAlpha.900")}
       color={"white"}
+      bottom={0}
+    
+      marginBottom={0}
     >
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>

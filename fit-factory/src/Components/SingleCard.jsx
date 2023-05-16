@@ -75,9 +75,8 @@ export default function SingleCard({ item }) {
               <Heading
                 lineHeight={1.1}
                 fontWeight={400}
-                fontSize={{ base: "xl", sm: "xl", lg: "2xl" }}
-              >
-                {item.title || item.Title || item.Name}...
+                fontSize={{ base: "xl", sm: "xl", lg: "2xl" }} >
+                {item.title || item.Title || item.Name}
               </Heading>
               <Text
                 color={useColorModeValue("gray.900", "gray.400")}

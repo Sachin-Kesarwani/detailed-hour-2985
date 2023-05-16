@@ -54,7 +54,7 @@ export default function Navbar() {
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <HStack spacing={8} alignItems={"center"}>
             <Link to="/">
-              <Image src="Logo.jpeg" alt="logo" w="240px" h="62px" />
+              <Image src="Logo.jpeg" alt="logo" w="100%" h="62px" />
             </Link>
 
             {/* ----------- SearchBar & SearchButton ------ */}
@@ -165,13 +165,13 @@ export default function Navbar() {
               </Popover>
             ) : (
               <Flex>
-                <Button
+                {/* <Button
                   colorScheme={"teal"}
                   m="5px 15px"
                   onClick={() => navigate("/signup")}
                 >
                   SignUp
-                </Button>
+                </Button> */}
 
                 {/* ---------- Login ----------- */}
                 <Button

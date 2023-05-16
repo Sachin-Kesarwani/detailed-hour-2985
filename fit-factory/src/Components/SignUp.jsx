@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
+import {Link} from "react-router-dom"
 import { useNavigate, Navigate, useLocation } from "react-router-dom";
 
 const SignUp = () => {
@@ -60,18 +61,18 @@ const SignUp = () => {
   };
 
   return (
-    <div style={{ alignContent: "center", paddingTop: "100px" }}>
+    <div style={{ alignContent: "center" }}>
       <FormControl bg="#f2e3c6" p="20px">
         <Flex>
-          <Image
+          {/* <Image
             src="https://static1.hkrtcdn.com/hknext/static/media/login/slider/1.svg"
             alt="loginImage"
             w="40%"
             height="400px"
             display="block"
             m="auto"
-          />
-          <Box dispaly="block" m="auto 20px">
+          /> */}
+          <Box dispaly="block" m="auto ">
             <Text fontSize="32px" fontWeight="bold" m="5px" textAlign="center">
               SignUp
             </Text>
@@ -79,7 +80,7 @@ const SignUp = () => {
               type="text"
               placeholder="Name"
               m="10px 5px"
-              display={{ base: "none", md: "flex" }}
+              display={{md: "flex" }}
               border="1px solid teal"
               onChange={(e) => setSignupName(e.target.value)}
             />
@@ -87,7 +88,7 @@ const SignUp = () => {
               type="email"
               placeholder="Email"
               m="10px 5px"
-              display={{ base: "none", md: "flex" }}
+              display={{ md: "flex" }}
               border="1px solid teal"
               onChange={(e) => setSignupEmail(e.target.value)}
             />
@@ -95,7 +96,7 @@ const SignUp = () => {
               type="password"
               placeholder="Password"
               m="10px 5px"
-              display={{ base: "none", md: "flex" }}
+              display={{ md: "flex" }}
               border="1px solid teal"
               onChange={(e) => setSignupPassword(e.target.value)}
             />
@@ -103,7 +104,7 @@ const SignUp = () => {
               type="number"
               placeholder="Phone"
               m="10px 5px"
-              display={{ base: "none", md: "flex" }}
+              display={{  md: "flex" }}
               border="1px solid teal"
               onChange={(e) => setSignupPhone(e.target.value)}
             />
@@ -116,7 +117,9 @@ const SignUp = () => {
             >
               SignUp
             </Button>
-
+      <Text>
+        If You have already signup , Please <Link to="/login"><Text display={"inline"} color={"blue"}>Login</Text></Link>
+      </Text>
             <Text textAlign="center">
               ** You may receive SMS updates from Fit-Factory and can opt out at
               any time. **

@@ -112,14 +112,14 @@ const PersonelInfo = () => {
         <div
           style={{
             border: "1px solid black",
-            width: "400px",
+            width: "auto",
             height: "160px",
             marginLeft: "20px",
             padding: "5px",
           }}
         >
           <Flex>
-            <Box margin={"5px"}>
+            <Box display={{base:"none",sm:"none"}}  margin={"5px"}>
               <Avatar name={accountdata.name} />
             </Box>
             <Box p={2}>
