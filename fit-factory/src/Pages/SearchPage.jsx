@@ -70,7 +70,7 @@ const SearchPage = () => {
     );
   } else {
     return (
-      <div style={{ alignContent: "center", paddingTop: "120px" }}>
+      <div style={{ alignContent: "center" }}>
         {/* ------- Sort By Price ------- */}
         <Select
           m="7px"
